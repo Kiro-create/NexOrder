@@ -1,6 +1,7 @@
 package com.eoms.app;
 
 import com.eoms.Boundary.CheckoutView;
+import com.eoms.adapter.DHLShippingAdapter;
 import com.eoms.Boundary.OrderTrackingView;
 import com.eoms.Boundary.PaymentView;
 import com.eoms.Boundary.ProductCatalogView;
@@ -49,7 +50,7 @@ public class EomsApplication {
         ProductService productService = new ProductServiceImpl(productDAO);
         this.orderService = new OrderServiceImpl(orderDAO, productDAO);
         this.paymentService = new PaymentServiceImpl(paymentDAO);
-        ShippingService shippingService = new ShippingServiceImpl(orderDAO, shipmentDAO);
+        ShippingService shippingService = new DHLShippingAdapter();
 
         // views
         this.catalogView = new ProductCatalogView(productService, scanner);

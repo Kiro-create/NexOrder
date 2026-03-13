@@ -5,6 +5,8 @@ public class Shipment {
     private int shipmentId;
     private int orderId;
     private String trackingNumber;
+    private String status;
+
 
     public Shipment(int shipmentId, int orderId, String trackingNumber) {
         this.shipmentId = shipmentId;
@@ -14,6 +16,14 @@ public class Shipment {
 
     public String getTrackingNumber() {
         return trackingNumber;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

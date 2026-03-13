@@ -3,7 +3,6 @@ package com.eoms.Boundary;
 import java.util.List;
 import java.util.Scanner;
 
-<<<<<<< HEAD
 import com.eoms.service.ProductService;
 import com.eoms.entity.Product;
 
@@ -20,20 +19,6 @@ public class ProductCatalogView {
         this.scanner = scanner;
     }
     
-=======
-import com.eoms.Controller.ManageProductCatalogController;
-import com.eoms.entity.Product;
-
-public class ProductCatalogView {
-
-    private ManageProductCatalogController controller;
-    private Scanner scanner;
-
-    public ProductCatalogView(ManageProductCatalogController controller, Scanner scanner) {
-        this.controller = controller;
-        this.scanner = scanner;
-    }
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 
     public void addProduct() {
 
@@ -46,16 +31,12 @@ public class ProductCatalogView {
 
         System.out.print("Price: ");
         double price = scanner.nextDouble();
-<<<<<<< HEAD
         scanner.nextLine();
-=======
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 
         System.out.print("Stock: ");
         int stock = scanner.nextInt();
         scanner.nextLine();
 
-<<<<<<< HEAD
         // --- Product type selection ---
         System.out.println("Select product type:");
         System.out.println("1. PHYSICAL");
@@ -74,9 +55,6 @@ public class ProductCatalogView {
 
         // --- Call controller with type ---
         boolean success = productService.addProduct(id, name, price, stock, type);
-=======
-        boolean success = controller.addProduct(id, name, price, stock);
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 
         if (success) {
             System.out.println("Product added successfully.");
@@ -87,11 +65,7 @@ public class ProductCatalogView {
 
     public void displayProducts() {
 
-<<<<<<< HEAD
         List<Product> products = productService.getAllProducts();
-=======
-        List<Product> products = controller.viewProducts();
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 
         for (Product p : products) {
 
@@ -102,8 +76,5 @@ public class ProductCatalogView {
             );
         }
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 }
