@@ -20,7 +20,6 @@ import com.eoms.service.ShippingService;
 import com.eoms.service.impl.OrderServiceImpl;
 import com.eoms.service.impl.PaymentServiceImpl;
 import com.eoms.service.impl.ProductServiceImpl;
-import com.eoms.service.impl.ShippingServiceImpl;
 
 import java.util.Scanner;
 
@@ -44,8 +43,7 @@ public class EomsApplication {
         ProductInterface productDAO = new ProductDAO();
         OrderInterface orderDAO = new OrderDAO();
         PaymentInterface paymentDAO = new PaymentDAO();
-        ShipmentInterface shipmentDAO = new ShipmentDAO();
-
+        
         // services
         ProductService productService = new ProductServiceImpl(productDAO);
         this.orderService = new OrderServiceImpl(orderDAO, productDAO);
