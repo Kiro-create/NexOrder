@@ -8,6 +8,7 @@ public class Order {
     private Customer customer;
     private List<OrderItem> items;
     private String status;
+<<<<<<< HEAD
     private Product product;
     private int quantity;
     private double total;
@@ -25,6 +26,8 @@ public class Order {
     public void setProduct(Product product) {
         this.product = product;
     }
+=======
+>>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 
     public Order(int orderId, Customer customer) {
         this.orderId = orderId;
@@ -63,6 +66,7 @@ public class Order {
         this.status = status;
     }
 
+<<<<<<< HEAD
     public double getTotal() {
         return total;
     }
@@ -75,4 +79,6 @@ public class Order {
         return items;
     }
 
+=======
+>>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
 }

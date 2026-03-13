@@ -7,4 +7,8 @@ public class PayPalPayment implements PaymentMethod {
         System.out.println("Processing PayPal payment: " + amount);
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
