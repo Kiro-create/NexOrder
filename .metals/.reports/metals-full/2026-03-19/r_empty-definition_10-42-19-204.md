@@ -1,3 +1,14 @@
+error id: file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java:Product/ProductType#PHYSICAL#
+file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java
+empty definition using pc, found symbol in pc: Product/ProductType#PHYSICAL#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1493
+uri: file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java
+text:
+```scala
 package com.eoms.Boundary;
 
 import java.util.List;
@@ -43,7 +54,7 @@ public class ProductCatalogView {
 
             Product.ProductType type;
             switch (typeChoice) {
-                case 1: type = Product.ProductType.PHYSICAL; break;
+                case 1: type = Product.ProductType.@@PHYSICAL; break;
                 case 2: type = Product.ProductType.DIGITAL; break;
                 case 3: type = Product.ProductType.SERVICE; break;
                 default: 
@@ -79,3 +90,9 @@ public class ProductCatalogView {
     }
     
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: Product/ProductType#PHYSICAL#

@@ -1,9 +1,20 @@
+error id: file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java:com/eoms/service/ProductService#
+file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java
+empty definition using pc, found symbol in pc: com/eoms/service/ProductService#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 107
+uri: file:///D:/Dropbox/Family/Ali%20EUI/Software%20Design%20and%20Development/Project/E-Commerce-OMS/NexOrder/eoms/src/main/java/com/eoms/Boundary/ProductCatalogView.java
+text:
+```scala
 package com.eoms.Boundary;
 
 import java.util.List;
 import java.util.Scanner;
 
-import com.eoms.service.ProductService;
+import com.eoms.service.@@ProductService;
 import com.eoms.entity.Product;
 
 /**
@@ -79,3 +90,9 @@ public class ProductCatalogView {
     }
     
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: com/eoms/service/ProductService#
