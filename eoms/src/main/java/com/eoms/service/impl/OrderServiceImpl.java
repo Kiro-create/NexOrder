@@ -32,6 +32,10 @@ public class OrderServiceImpl implements OrderService {
     public boolean addProductToOrder(Order order, int productId, int quantity) {
         Logger logger = Logger.getInstance();
         logger.info("Adding product to order. Product ID: " + productId);
+        if (quantity <= 0) {
+            logger.error("Invalid quantity for product: " + productId);
+            return false;
+        }
 
         Product product = productDAO.findProductById(productId);
         if (product == null) {

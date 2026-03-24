@@ -21,7 +21,7 @@ public class ShipmentDAO implements ShipmentInterface {
 
         for (Shipment s : shipments) {
 
-            if (s != null) {
+            if (s != null && s.getOrderId() == orderId) {
                 return s;
             }
 

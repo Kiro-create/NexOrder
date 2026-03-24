@@ -8,11 +8,17 @@ import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.DAO.OrderInterface;
 import com.eoms.DAO.PaymentInterface;
 import com.eoms.DAO.ProductInterface;
-import com.eoms.DAO.ShipmentInterface;
 import com.eoms.DAO.OrderDAO;
 import com.eoms.DAO.PaymentDAO;
 import com.eoms.DAO.ProductDAO;
-import com.eoms.DAO.ShipmentDAO;
+import com.eoms.bridge_notification.EmailSender;
+import com.eoms.bridge_notification.MessageSender;
+import com.eoms.bridge_notification.Notification;
+import com.eoms.bridge_notification.OrderConfirmationNotification;
+import com.eoms.bridge_notification.PaymentReceiptNotification;
+import com.eoms.bridge_notification.decorator.DeliveryConfirmationSenderDecorator;
+import com.eoms.bridge_notification.decorator.LoggingMessageSenderDecorator;
+import com.eoms.bridge_notification.decorator.MessageHistorySenderDecorator;
 import com.eoms.service.OrderService;
 import com.eoms.service.PaymentService;
 import com.eoms.service.ProductService;
@@ -35,6 +41,8 @@ public class EomsApplication {
     private final OrderTrackingView trackingView;
     private final OrderService orderService;
     private final PaymentService paymentService;
+    private final Notification orderConfirmationNotification;
+    private final Notification paymentReceiptNotification;
 
     public EomsApplication(Scanner scanner) {
         this.scanner = scanner;
@@ -49,6 +57,13 @@ public class EomsApplication {
         this.orderService = new OrderServiceImpl(orderDAO, productDAO);
         this.paymentService = new PaymentServiceImpl(paymentDAO);
         ShippingService shippingService = new DHLShippingAdapter();
+
+        MessageSender decoratedSender = new MessageHistorySenderDecorator(
+                new DeliveryConfirmationSenderDecorator(
+                        new LoggingMessageSenderDecorator(
+                                new EmailSender())));
+        this.orderConfirmationNotification = new OrderConfirmationNotification(decoratedSender);
+        this.paymentReceiptNotification = new PaymentReceiptNotification(decoratedSender);
 
         // views
         this.catalogView = new ProductCatalogView(productService, scanner);
@@ -89,7 +104,9 @@ public class EomsApplication {
                             paymentView,
                             trackingView,
                             orderService,
-                            paymentService)
+                            paymentService,
+                            orderConfirmationNotification,
+                            paymentReceiptNotification)
                             .handle(scanner);
                     break;
                 default:

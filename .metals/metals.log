@@ -1543,3 +1543,278 @@ WARNING: Unmatched cancel notification for request id 16
 2026.03.19 20:38:23 INFO  shutting down Metals
 2026.03.19 20:38:23 INFO  Shut down connection with build server.
 2026.03.19 20:38:23 INFO  Exiting server
+2026.03.19 01:09:30 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\merom\Desktop\NexOrder' for client Visual Studio Code 1.111.0.
+2026.03.19 01:09:30 INFO  Memory monitor started
+2026.03.19 01:09:31 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.19 01:09:31 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\adapter\PaymentGatewayAdapter.java. Using fallback presentation compiler.
+2026.03.19 01:09:32 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\adapter\PaymentGatewayAdapter.java. Using fallback presentation compiler.
+2026.03.19 01:09:32 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\adapter\PaymentGatewayAdapter.java. Using fallback presentation compiler.
+2026.03.19 01:09:32 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+2026.03.19 01:09:32 INFO  Attempting to connect to the build server...
+2026.03.19 01:09:33 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:33 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8
+2026.03.19 01:09:32 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+2026.03.19 01:09:32 INFO  Found a Bloop server running
+2026.03.19 01:09:33 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\merom\Desktop\NexOrder\.metals\bsp.trace.json or C:\Users\merom\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.03.19 01:09:33 ERROR C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot release file missing JAVA_VERSION property - using Bloop's JVM version 23.0.2
+2026.03.19 01:09:33 ERROR C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot release file missing JAVA_VERSION property - using Bloop's JVM version 23.0.2
+2026.03.19 01:09:33 INFO  time: Connected to build server in 0.71s
+2026.03.19 01:09:33 INFO  Connected to Build server: Bloop v2.0.19
+2026.03.19 01:09:34 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-2MccBzF7SXuoouePeG3_fQ==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.19 01:09:33 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-2MccBzF7SXuoouePeG3_fQ==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.19 01:09:33 INFO  time: Imported build in 0.14s
+2026.03.19 01:09:34 INFO  Disconnecting from Bloop session...
+2026.03.19 01:09:34 ERROR Failed to connect with build server, no functionality will work.
+java.lang.IllegalArgumentException: 'other' has different root
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:420)
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
+	at scala.meta.io.AbsolutePath.toRelative(AbsolutePath.scala:34)
+	at scala.meta.internal.metals.DelegateSetting$.$anonfun$writeProjectRef$1(DelegateSetting.scala:18)
+	at scala.collection.immutable.List.map(List.scala:236)
+	at scala.meta.internal.metals.DelegateSetting$.writeProjectRef(DelegateSetting.scala:18)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.saveProjectReferencesInfo(ConnectionProvider.scala:498)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.$anonfun$importBuildAndIndex$2(ConnectionProvider.scala:476)
+	at scala.meta.internal.metals.Interruptable.$anonfun$map$1(Interruptable.scala:46)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.19 01:09:34 INFO  Shut down connection with build server.
+2026.03.19 01:09:34 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\adapter\PaymentGatewayAdapter.java
+2026.03.19 01:09:34 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java
+2026.03.19 01:09:33 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+2026.03.19 01:09:34 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+2026.03.19 01:09:36 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Main.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\CheckoutView.java
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\CheckoutView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\CheckoutView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\CheckoutView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 21
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 19
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\CheckoutView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 INFO  time: code lens generation in 4.24s
+2026.03.19 01:09:38 INFO  time: code lens generation in 4.38s
+2026.03.19 01:09:38 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\OrderTrackingView.java
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\OrderTrackingView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 25
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\OrderTrackingView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\OrderTrackingView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 29
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 26
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\OrderTrackingView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\PaymentView.java
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\PaymentView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\PaymentView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 33
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\PaymentView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 37
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 36
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 34
+Mar 19, 2026 1:09:38 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 35
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\PaymentView.java. Using fallback presentation compiler.
+2026.03.19 01:09:39 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:09:38 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+Mar 19, 2026 1:09:39 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 40
+2026.03.19 01:09:39 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:09:39 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:09:40 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:13:25 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\Boundary\ProductCatalogView.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:45 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:46 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:46 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java
+2026.03.19 01:15:46 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:46 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:46 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:46 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:47 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:47 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java
+2026.03.19 01:15:47 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:47 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:47 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:47 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageHistorySenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:48 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java
+2026.03.19 01:15:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:15:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:17:48 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java
+2026.03.19 01:17:48 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:50 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\DeliveryConfirmationSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:50 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:50 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:49 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:50 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\LoggingMessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:51 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:20:50 WARN  no build target for: C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java
+2026.03.19 01:20:51 INFO  no build target found for C:\Users\merom\Desktop\NexOrder\eoms\src\main\java\com\eoms\bridge_notification\decorator\MessageSenderDecorator.java. Using fallback presentation compiler.
+2026.03.19 01:24:34 INFO  Shutting down server
+2026.03.19 01:24:34 INFO  Memory monitor stopped
+2026.03.19 01:24:34 INFO  shutting down Metals
+2026.03.19 01:24:34 INFO  Exiting server

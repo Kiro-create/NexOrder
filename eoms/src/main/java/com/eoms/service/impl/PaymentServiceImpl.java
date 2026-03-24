@@ -22,7 +22,8 @@ public class PaymentServiceImpl implements PaymentService {
         Logger logger = Logger.getInstance();
         logger.info("Starting payment process");
 
-        double amount = order.calculateTotal();
+        // Keep a single source of truth for payable amount.
+        double amount = order.getTotal() > 0 ? order.getTotal() : order.calculateTotal();
         logger.log("Order total calculated: " + amount);
 
         // let the processor handle external payment logic

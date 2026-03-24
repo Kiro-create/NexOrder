@@ -4,9 +4,11 @@ import com.eoms.abstract_factory.ui.Dashboard;
 import com.eoms.adapter.PaymentGatewayAdapter;
 import com.eoms.abstract_factory.ui.Menu;
 import com.eoms.abstract_factory.ui.UserRole;
+import com.eoms.bridge_notification.Notification;
 import com.eoms.config.UIFactoryRegistry;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
+import com.eoms.entity.Payment;
 import com.eoms.factory.PaymentProcessor;
 import com.eoms.factory.CashOnDeliveryProcessor;
 import com.eoms.factory.CreditCardProcessor;
@@ -32,6 +34,8 @@ public class CustomerRoleHandler implements RoleHandler {
     private final OrderTrackingView trackingView;
     private final OrderService orderService;
     private final PaymentService paymentService;
+    private final Notification orderConfirmationNotification;
+    private final Notification paymentReceiptNotification;
 
     public CustomerRoleHandler(
             ProductCatalogView catalogView,
@@ -39,13 +43,17 @@ public class CustomerRoleHandler implements RoleHandler {
             PaymentView paymentView,
             OrderTrackingView trackingView,
             OrderService orderService,
-            PaymentService paymentService) {
+            PaymentService paymentService,
+            Notification orderConfirmationNotification,
+            Notification paymentReceiptNotification) {
         this.catalogView = catalogView;
         this.checkoutView = checkoutView;
         this.paymentView = paymentView;
         this.trackingView = trackingView;
         this.orderService = orderService;
         this.paymentService = paymentService;
+        this.orderConfirmationNotification = orderConfirmationNotification;
+        this.paymentReceiptNotification = paymentReceiptNotification;
     }
 
     @Override
@@ -88,6 +96,7 @@ public class CustomerRoleHandler implements RoleHandler {
                     if (order != null && !order.getItems().isEmpty()) {
                         double total = orderService.finalizeOrder(order);
                         System.out.println("Order finalized. Total: " + total);
+                        orderConfirmationNotification.send("Order ID " + order.getOrderId() + " total = " + total);
                     } else {
                         System.out.println("Create an order and add items first.");
                     }
@@ -121,7 +130,9 @@ public class CustomerRoleHandler implements RoleHandler {
                         }
                         if (processor != null) {
                             // delegate ID prompt and service call to view
-                            paymentView.makePayment(order, processor);
+                            Payment payment = paymentView.makePayment(order, processor);
+                            paymentReceiptNotification.send(
+                                    "Payment ID " + payment.getPaymentId() + " approved for order ID " + order.getOrderId());
                         }
                     } else {
                         System.out.println("Create an order first.");

@@ -1,6 +1,4 @@
 package com.eoms.Boundary;
-import com.eoms.entity.Product;
-import com.eoms.config.Logger;
 import java.util.Scanner;
 
 import com.eoms.service.OrderService;
@@ -18,15 +16,11 @@ public class CheckoutView {
     }
 
     public Order createOrder(Customer customer) {
-        Logger logger = Logger.getInstance();
-
         System.out.print("Enter Order ID: ");
         int orderId = scanner.nextInt();
         scanner.nextLine();
 
-        Order order = new Order(orderId, customer);
-
-        logger.info("Creating empty order with ID: " + orderId);
+        Order order = orderService.createOrder(orderId, customer);
         System.out.println("Order created. Add products to cart using 'Add Product to Cart' option.");
 
         return order;
@@ -61,7 +55,7 @@ public class CheckoutView {
         if (success)
             System.out.println("Item added to order.");
         else
-            System.out.println("Product not found.");
+            System.out.println("Item could not be added (product not found or insufficient stock).");
     }
 
     public void finalizeOrder(Order order) {

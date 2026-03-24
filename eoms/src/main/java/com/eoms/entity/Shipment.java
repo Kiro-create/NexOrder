@@ -17,6 +17,14 @@ public class Shipment {
     public String getTrackingNumber() {
         return trackingNumber;
     }
+
+    public int getShipmentId() {
+        return shipmentId;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
     
     public String getStatus() {
         return status;
