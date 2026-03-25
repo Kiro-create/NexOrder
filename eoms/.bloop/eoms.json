@@ -1,0 +1,113 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "eoms",
+        "directory": "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms",
+        "workspaceDir": "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms",
+        "sources": [
+            "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms\\src\\main\\java"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms\\target\\classes"
+        ],
+        "out": "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms\\target",
+        "classesDir": "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms\\target\\classes",
+        "resources": [
+            "D:\\Dropbox\\Family\\Ali EUI\\Software Design and Development\\Project\\eoms\\src\\main\\resources"
+        ],
+        "java": {
+            "options": [
+                "-g",
+                "-target",
+                "17",
+                "-source",
+                "17",
+                "-encoding",
+                "UTF-8"
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework",
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "utest.runner.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "mill.testng.TestNGFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    {
+                        "args": [
+                            "-v",
+                            "-a"
+                        ],
+                        "framework": {
+                            "names": [
+                                "com.novocode.junit.JUnitFramework"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Eclipse Adoptium\\jdk-25.0.1.8-hotspot",
+                "options": [
+                    
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}
