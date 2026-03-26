@@ -13,7 +13,7 @@ public class ProductFlyweightFactory {
         Logger logger = Logger.getInstance();
         if (!flyweights.containsKey(type)) {
             logger.info("Creating new flyweight for type: " + type);
-            flyweights.put(type, new ConcreteProductFlyweight(type));
+            flyweights.put(type, new ProductFlyweight(type));
         } else {
             logger.info("Reusing existing flyweight for type: " + type);
         }

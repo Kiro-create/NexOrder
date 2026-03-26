@@ -19,6 +19,7 @@ import com.eoms.bridge_notification.OrderConfirmationNotification;
 import com.eoms.bridge_notification.PaymentReceiptNotification;
 import com.eoms.bridge_notification.ShippingUpdateNotification;
 import com.eoms.bridge_notification.SmsSender;
+import com.eoms.bridge_notification.WhatsAppSender;
 import com.eoms.bridge_notification.decorator.TimestampMessageSenderDecorator;
 import com.eoms.service.OrderService;
 import com.eoms.service.PaymentService;
@@ -33,7 +34,6 @@ import com.eoms.service.impl.ReportServiceImpl;
 import java.util.Scanner;
 
 /**
- * High-level entry point logic extracted from Main to reduce its complexity.
  * This class wires dependencies and exposes a single run() method.
  */
 public class EomsApplication {
@@ -67,12 +67,19 @@ public class EomsApplication {
         this.paymentService = new PaymentServiceImpl(paymentDAO);
         ShippingService shippingService = new DHLShippingAdapter();
 
-        // Decorator: timestamp on email bodies for audit (order/payment notifications).
+        // Decorator: timestamp on email/WhatsApp bodies for order notifications and email receipts.
         MessageSender emailSender = new TimestampMessageSenderDecorator(new EmailSender());
-        this.orderConfirmationNotification = new OrderConfirmationNotification(emailSender);
+        MessageSender whatsAppSender = new TimestampMessageSenderDecorator(new WhatsAppSender());
+        MessageSender orderConfirmationChannel = message -> {
+            emailSender.sendMessage(message);
+            whatsAppSender.sendMessage(message);
+        };
+
+        this.orderConfirmationNotification = new OrderConfirmationNotification(orderConfirmationChannel);
         this.paymentReceiptNotification = new PaymentReceiptNotification(emailSender);
 
-        MessageSender shippingChannel = new SmsSender();
+        // Decorator: timestamp on SMS shipping updates.
+        MessageSender shippingChannel = new TimestampMessageSenderDecorator(new SmsSender());
         this.shippingUpdateNotification = new ShippingUpdateNotification(shippingChannel);
 
         // views
