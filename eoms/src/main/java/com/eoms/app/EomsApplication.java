@@ -19,7 +19,6 @@ import com.eoms.bridge_notification.OrderConfirmationNotification;
 import com.eoms.bridge_notification.PaymentReceiptNotification;
 import com.eoms.bridge_notification.ShippingUpdateNotification;
 import com.eoms.bridge_notification.SmsSender;
-import com.eoms.bridge_notification.decorator.SmsLengthLimitMessageSenderDecorator;
 import com.eoms.bridge_notification.decorator.TimestampMessageSenderDecorator;
 import com.eoms.service.OrderService;
 import com.eoms.service.PaymentService;
@@ -73,8 +72,7 @@ public class EomsApplication {
         this.orderConfirmationNotification = new OrderConfirmationNotification(emailSender);
         this.paymentReceiptNotification = new PaymentReceiptNotification(emailSender);
 
-        // Decorator: SMS length limit for shipping alerts.
-        MessageSender shippingChannel = new SmsLengthLimitMessageSenderDecorator(new SmsSender());
+        MessageSender shippingChannel = new SmsSender();
         this.shippingUpdateNotification = new ShippingUpdateNotification(shippingChannel);
 
         // views
@@ -113,15 +111,16 @@ public class EomsApplication {
                     adminHandler.handle(scanner);
                     break;
                 case 2:
+                    PaymentProcessorProvider paymentProcessorProvider = new DefaultPaymentProcessorProvider();
                     new CustomerRoleHandler(
                             catalogView,
                             checkoutView,
                             paymentView,
                             trackingView,
                             orderService,
-                            paymentService,
                             orderConfirmationNotification,
-                            paymentReceiptNotification)
+                            paymentReceiptNotification,
+                            paymentProcessorProvider)
                             .handle(scanner);
                     break;
                 default:

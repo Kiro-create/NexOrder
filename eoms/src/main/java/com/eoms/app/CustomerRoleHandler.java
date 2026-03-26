@@ -1,7 +1,6 @@
 package com.eoms.app;
 
 import com.eoms.abstract_factory.ui.Dashboard;
-import com.eoms.adapter.PaymentGatewayAdapter;
 import com.eoms.abstract_factory.ui.Menu;
 import com.eoms.abstract_factory.ui.UserRole;
 import com.eoms.bridge_notification.Notification;
@@ -10,11 +9,7 @@ import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
 import com.eoms.entity.Payment;
 import com.eoms.factory.PaymentProcessor;
-import com.eoms.factory.CashOnDeliveryProcessor;
-import com.eoms.factory.CreditCardProcessor;
-import com.eoms.factory.PayPalProcessor;
 import com.eoms.service.OrderService;
-import com.eoms.service.PaymentService;
 import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.Boundary.CheckoutView;
 import com.eoms.Boundary.PaymentView;
@@ -33,9 +28,9 @@ public class CustomerRoleHandler implements RoleHandler {
     private final PaymentView paymentView;
     private final OrderTrackingView trackingView;
     private final OrderService orderService;
-    private final PaymentService paymentService;
     private final Notification orderConfirmationNotification;
     private final Notification paymentReceiptNotification;
+    private final PaymentProcessorProvider paymentProcessorProvider;
 
     public CustomerRoleHandler(
             ProductCatalogView catalogView,
@@ -43,17 +38,20 @@ public class CustomerRoleHandler implements RoleHandler {
             PaymentView paymentView,
             OrderTrackingView trackingView,
             OrderService orderService,
-            PaymentService paymentService,
             Notification orderConfirmationNotification,
-            Notification paymentReceiptNotification) {
+            Notification paymentReceiptNotification,
+            PaymentProcessorProvider paymentProcessorProvider) {
         this.catalogView = catalogView;
         this.checkoutView = checkoutView;
         this.paymentView = paymentView;
         this.trackingView = trackingView;
         this.orderService = orderService;
-        this.paymentService = paymentService;
         this.orderConfirmationNotification = orderConfirmationNotification;
         this.paymentReceiptNotification = paymentReceiptNotification;
+        if (paymentProcessorProvider == null) {
+            throw new IllegalArgumentException("paymentProcessorProvider must not be null");
+        }
+        this.paymentProcessorProvider = paymentProcessorProvider;
     }
 
     @Override
@@ -107,32 +105,38 @@ public class CustomerRoleHandler implements RoleHandler {
                             System.out.println("Order already paid.");
                             break;
                         }
-                        System.out.println("Choose payment method:");
-                        System.out.println("1. Credit Card");
-                        System.out.println("2. PayPal");
-                        System.out.println("3. Cash On Delivery");
-                        int paymentChoice = scanner.nextInt();
-                        scanner.nextLine();
-                        PaymentProcessor processor = null;
-                        switch (paymentChoice) {
-                        case 1:
-                            processor = new PaymentGatewayAdapter(new CreditCardProcessor());
-                            break;
-                        case 2:
-                            processor = new PaymentGatewayAdapter(new PayPalProcessor());
-                            break;
-                        case 3:
-                            processor = new CashOnDeliveryProcessor();
-                            break;
-                    
-                            default:
+                        boolean paid = false;
+                        while (!paid) {
+                            System.out.println("Choose payment method:");
+                            System.out.println("1. Credit Card");
+                            System.out.println("2. PayPal");
+                            System.out.println("3. Cash On Delivery");
+                            System.out.println("0. Cancel");
+
+                            int paymentChoice = scanner.nextInt();
+                            scanner.nextLine();
+
+                            if (paymentChoice == 0) {
+                                break;
+                            }
+
+                            PaymentProcessor processor = paymentProcessorProvider.getProcessor(paymentChoice);
+                            if (processor == null) {
                                 System.out.println("Invalid payment method.");
-                        }
-                        if (processor != null) {
+                                continue;
+                            }
+
                             // delegate ID prompt and service call to view
                             Payment payment = paymentView.makePayment(order, processor);
-                            paymentReceiptNotification.send(
-                                    "Payment ID " + payment.getPaymentId() + " approved for order ID " + order.getOrderId());
+
+                            if ("Approved".equals(payment.getStatus())) {
+                                paymentReceiptNotification.send(
+                                        "Payment ID " + payment.getPaymentId() + " approved for order ID " + order.getOrderId());
+                                paid = true;
+                            } else {
+                                // payment declined (e.g., exceeded COD cap). Let the user try another method.
+                                System.out.println("Payment failed. Please choose another payment method.");
+                            }
                         }
                     } else {
                         System.out.println("Create an order first.");

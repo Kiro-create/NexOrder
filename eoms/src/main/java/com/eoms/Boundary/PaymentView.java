@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.eoms.service.PaymentService;
 import com.eoms.entity.Order;
 import com.eoms.entity.Payment;
+import com.eoms.factory.PaymentProcessor;
 
 public class PaymentView {
 
@@ -16,7 +17,7 @@ public class PaymentView {
         this.scanner = scanner;
     }
 
-    public Payment makePayment(Order order, com.eoms.factory.PaymentProcessor processor) {
+    public Payment makePayment(Order order, PaymentProcessor processor) {
 
         System.out.print("Enter Payment ID: ");
         int paymentId = scanner.nextInt();
@@ -24,7 +25,11 @@ public class PaymentView {
 
         Payment payment = paymentService.processPayment(paymentId, order, processor);
 
-        System.out.println("Payment approved. Amount = " + payment.getAmount());
+        if ("Approved".equals(payment.getStatus())) {
+            System.out.println("Payment approved. Amount = " + payment.getAmount());
+        } else {
+            System.out.println("Payment not approved. Amount = " + payment.getAmount());
+        }
 
         return payment;
     }
