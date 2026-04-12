@@ -6,6 +6,7 @@ import com.eoms.entity.Payment;
 import com.eoms.entity.Order;
 import com.eoms.config.Logger;
 import com.eoms.factory.PaymentProcessor;
+import com.eoms.util.InputValidator;
 
 public class PaymentServiceImpl implements PaymentService {
     private final PaymentInterface paymentDAO;
@@ -19,18 +20,27 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public Payment processPayment(int paymentId, Order order, PaymentProcessor processor) {
+        InputValidator.validatePositiveInt(paymentId, "Payment ID");
+        InputValidator.validateNotNull(order, "Order");
+        InputValidator.validateNotNull(processor, "Payment processor");
+
         Logger logger = Logger.getInstance();
         logger.info("Starting payment process");
 
-        // Keep a single source of truth for payable amount.
+        Payment existingPayment = paymentDAO.findPaymentById(paymentId);
+        if (existingPayment != null) {
+            logger.error("Payment already created with ID: " + paymentId);
+            throw new IllegalArgumentException("Payment already created with ID: " + paymentId);
+        }
+
         double amount = order.getTotal() > 0 ? order.getTotal() : order.calculateTotal();
+        InputValidator.validatePrice(amount);
         logger.log("Order total calculated: " + amount);
 
         Payment payment = Payment.createPayment(paymentId, amount);
         logger.log("Payment object created with id: " + paymentId);
 
         try {
-            // let the processor handle external payment logic
             processor.processOrder(amount);
         } catch (RuntimeException ex) {
             String declinedStatus = "Declined";

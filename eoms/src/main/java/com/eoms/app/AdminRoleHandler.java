@@ -7,6 +7,7 @@ import com.eoms.config.UIFactoryRegistry;
 import com.eoms.Boundary.AdminReportView;
 import com.eoms.Boundary.ProductCatalogView;
 import java.util.Scanner;
+import com.eoms.util.InputValidator;
 
 public class AdminRoleHandler implements RoleHandler {
 
@@ -32,6 +33,7 @@ public class AdminRoleHandler implements RoleHandler {
             int choice;
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
+                InputValidator.validateRange(choice, 0, 3, "Menu choice");
                 scanner.nextLine();
             } else {
                 System.out.println("Invalid input. Please enter a number.");

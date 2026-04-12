@@ -6,4 +6,6 @@ public interface PaymentInterface {
 
     void savePayment(Payment payment);
 
+	Payment findPaymentById(int paymentId);
+
 }

@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.eoms.service.OrderService;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
+import com.eoms.util.InputValidator;
 
 public class CheckoutView {
 
@@ -16,46 +17,62 @@ public class CheckoutView {
     }
 
     public Order createOrder(Customer customer) {
-        System.out.print("Enter Order ID: ");
-        int orderId = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            InputValidator.validateNotNull(customer, "Customer");
 
-        Order order = orderService.createOrder(orderId, customer);
-        System.out.println("Order created. Add products to cart using 'Add Product to Cart' option.");
+            Order order = orderService.createOrder(customer);
+            System.out.println("Order created. Add products to cart using 'Add Product to Cart' option.");
+            System.out.println("Your Order ID is " + order.getOrderId() + ".");
 
-        return order;
+            return order;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
+            return null;
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            return null;
+        }
     }
 
     public void addProductToOrder(Order order) {
+        try {
+            InputValidator.validateNotNull(order, "Order");
 
-        System.out.print("Product ID: ");
+            System.out.print("Product ID: ");
 
-        if (!scanner.hasNextInt()) {
-            System.out.println("Invalid product ID. Please enter a number.");
-            scanner.next();   // clear the invalid input
-            return;
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid product ID. Please enter a number.");
+                scanner.next();   // clear the invalid input
+                return;
+            }
+
+            int productId = scanner.nextInt();
+            InputValidator.validatePositiveInt(productId, "Product ID");
+            scanner.nextLine();
+
+            System.out.print("Quantity: ");
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid quantity. Please enter a number.");
+                scanner.next();
+                return;
+            }
+
+            int quantity = scanner.nextInt();
+            InputValidator.validateQuantity(quantity);
+            scanner.nextLine();
+
+            boolean success = orderService.addProductToOrder(order, productId, quantity);
+
+            if (success)
+                System.out.println("Item added to order.");
+            else
+                System.out.println("Item could not be added (product not found or insufficient stock).");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
-
-        int productId = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.print("Quantity: ");
-
-        if (!scanner.hasNextInt()) {
-            System.out.println("Invalid quantity. Please enter a number.");
-            scanner.next();
-            return;
-        }
-
-        int quantity = scanner.nextInt();
-        scanner.nextLine();
-
-        boolean success = orderService.addProductToOrder(order, productId, quantity);
-
-        if (success)
-            System.out.println("Item added to order.");
-        else
-            System.out.println("Item could not be added (product not found or insufficient stock).");
     }
 
     public void finalizeOrder(Order order) {

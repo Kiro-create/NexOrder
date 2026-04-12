@@ -8,7 +8,7 @@ import com.eoms.entity.Product;
  * Service abstraction for order processing logic.
  */
 public interface OrderService {
-    Order createOrder(int orderId, Customer customer);
+    Order createOrder(Customer customer);
     boolean addProductToOrder(Order order, int productId, int quantity);
     Product selectProductFromCatalog();
     double finalizeOrder(Order order);

@@ -11,6 +11,7 @@ public class Order {
     private Product product;
     private int quantity;
     private double total;
+    private boolean finalized;
     
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -31,6 +32,7 @@ public class Order {
         this.customer = customer;
         this.items = new ArrayList<>();
         this.status = "Created";
+        this.finalized = false;
     }
 
     public void addProduct(Product product, int quantity) {
@@ -69,6 +71,14 @@ public class Order {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public boolean isFinalized() {
+        return finalized;
+    }
+
+    public void markFinalized() {
+        this.finalized = true;
     }
 
     public List<OrderItem> getItems() {

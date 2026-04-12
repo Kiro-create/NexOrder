@@ -16,6 +16,7 @@ import com.eoms.Boundary.PaymentView;
 import com.eoms.Boundary.OrderTrackingView;
 
 import java.util.Scanner;
+import com.eoms.util.InputValidator;
 
 /**
  * Encapsulates the complete customer interaction loop.  Business logic is
@@ -69,6 +70,7 @@ public class CustomerRoleHandler implements RoleHandler {
             int choice;
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
+                InputValidator.validateRange(choice, 0, 6, "Menu choice");
                 scanner.nextLine();
             } else {
                 System.out.println("Invalid input. Please enter a number.");
@@ -81,11 +83,22 @@ public class CustomerRoleHandler implements RoleHandler {
                     catalogView.displayProducts();
                     break;
                 case 2: // create order
-                    order = checkoutView.createOrder(customer);
+                    if (order != null && !order.isFinalized()) {
+                        System.out.println("Finish or pay the current order before creating a new one.");
+                        break;
+                    }
+                    Order newOrder = checkoutView.createOrder(customer);
+                    if (newOrder != null) {
+                        order = newOrder;
+                    }
                     break;
                 case 3: // add product to order
                     if (order != null) {
-                        checkoutView.addProductToOrder(order);
+                        if (order.isFinalized()) {
+                            System.out.println("The current order is already complete. Create a new order to continue.");
+                        } else {
+                            checkoutView.addProductToOrder(order);
+                        }
                     } else {
                         System.out.println("Create an order first.");
                     }
@@ -114,6 +127,7 @@ public class CustomerRoleHandler implements RoleHandler {
                             System.out.println("0. Cancel");
 
                             int paymentChoice = scanner.nextInt();
+                            InputValidator.validateRange(paymentChoice, 0, 3, "Payment choice");
                             scanner.nextLine();
 
                             if (paymentChoice == 0) {
@@ -153,4 +167,5 @@ public class CustomerRoleHandler implements RoleHandler {
             }
         }
     }
+
 }

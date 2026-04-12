@@ -1,9 +1,0 @@
-{
-<<<<<<< HEAD
-    "editor.acceptSuggestionOnEnter": "on"
-=======
-    "files.watcherExclude": {
-        "**/target": true
-    }
->>>>>>> 16f1ee294919e802a56a462c14ee386ee6604168
-}

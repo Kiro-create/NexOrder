@@ -6,6 +6,7 @@ import com.eoms.bridge_notification.Notification;
 import com.eoms.service.ShippingService;
 import com.eoms.entity.Order;
 import com.eoms.entity.Shipment;
+import com.eoms.util.InputValidator;
 
 public class OrderTrackingView {
 
@@ -23,27 +24,33 @@ public class OrderTrackingView {
     }
 
     public void trackOrder() {
+        try {
+            System.out.print("Enter Order ID: ");
+            int orderId = scanner.nextInt();
+            InputValidator.validatePositiveInt(orderId, "Order ID");
+            scanner.nextLine();
 
-        System.out.print("Enter Order ID: ");
-        int orderId = scanner.nextInt();
-        scanner.nextLine();
+            Order order = shippingService.getOrder(orderId);
 
-        Order order = shippingService.getOrder(orderId);
+            if (order == null) {
+                System.out.println("Order not found.");
+                return;
+            }
 
-        if (order == null) {
-            System.out.println("Order not found.");
-            return;
-        }
+            System.out.println("Order Status: " + order.getStatus());
 
-        System.out.println("Order Status: " + order.getStatus());
+            Shipment shipment = shippingService.getShipmentForOrder(orderId);
 
-        Shipment shipment = shippingService.getShipmentForOrder(orderId);
-
-        if (shipment != null) {
-            System.out.println("Shipment status: " + shipment.getStatus());
-            System.out.println("Tracking Number: " + shipment.getTrackingNumber());
-            shippingUpdateNotification.send(
-                    "Order " + orderId + " | " + shipment.getStatus() + " | " + shipment.getTrackingNumber());
+            if (shipment != null) {
+                System.out.println("Shipment status: " + shipment.getStatus());
+                System.out.println("Tracking Number: " + shipment.getTrackingNumber());
+                shippingUpdateNotification.send(
+                        "Order " + orderId + " | " + shipment.getStatus() + " | " + shipment.getTrackingNumber());
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
     }
 }

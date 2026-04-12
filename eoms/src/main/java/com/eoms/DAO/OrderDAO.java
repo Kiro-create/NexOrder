@@ -6,6 +6,7 @@ import com.eoms.entity.Order;
 public class OrderDAO implements OrderInterface {
 
     private List<Order> orders = new ArrayList<>();
+    private int nextOrderId = 1;
 
     @Override
     public void saveOrder(Order order) {
@@ -27,6 +28,11 @@ public class OrderDAO implements OrderInterface {
         }
 
         return null;
+    }
+
+    @Override
+    public int getNextOrderId() {
+        return nextOrderId++;
     }
 
 }

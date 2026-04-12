@@ -30,8 +30,10 @@ import com.eoms.service.impl.OrderServiceImpl;
 import com.eoms.service.impl.PaymentServiceImpl;
 import com.eoms.service.impl.ProductServiceImpl;
 import com.eoms.service.impl.ReportServiceImpl;
+import com.eoms.config.SingletonInitializer;
 
 import java.util.Scanner;
+import com.eoms.util.InputValidator;
 
 /**
  * This class wires dependencies and exposes a single run() method.
@@ -92,6 +94,9 @@ public class EomsApplication {
 
 
     public void run() {
+        // Initialize all singletons once at startup
+        SingletonInitializer.initialize();
+
         boolean running = true;
         while (running) {
             System.out.println("=== E-OMS Demo ===");
@@ -102,6 +107,7 @@ public class EomsApplication {
             int role;
             if (scanner.hasNextInt()) {
                 role = scanner.nextInt();
+                InputValidator.validateRange(role, 0, 2, "Role choice");
                 scanner.nextLine();
             } else {
                 System.out.println("Invalid input. Please enter a number.");

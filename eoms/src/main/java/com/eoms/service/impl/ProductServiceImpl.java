@@ -5,6 +5,7 @@ import com.eoms.DAO.ProductInterface;
 import com.eoms.entity.Product;
 import com.eoms.config.Logger;
 import java.util.List;
+import com.eoms.util.InputValidator;
 
 /**
  * Concrete service implementation. Keeps all business rules related to products.
@@ -22,8 +23,22 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean addProduct(int id, String name, double price, int stock, Product.ProductType type) {
+        InputValidator.validatePositiveInt(id, "Product ID");
+        InputValidator.validateNonEmptyString(name, "Product name");
+        InputValidator.validateStringLength(name, InputValidator.MAX_STRING_LENGTH, "Product name");
+        InputValidator.validatePrice(price);
+        InputValidator.validateStock(stock);
+        InputValidator.validateNotNull(type, "Product type");
+
         Logger logger = Logger.getInstance();
         logger.info("Adding new product with ID: " + id);
+
+        // ✅ uniqueness check HERE
+        Product existingProduct = productDAO.findProductById(id);
+        if (existingProduct != null) {
+            logger.error("Product already created with ID: " + id);
+            throw new IllegalArgumentException("Product already created with ID: " + id);
+        }
 
         Product product = Product.createProduct(id, name, price, stock, type);
         productDAO.saveProduct(product);

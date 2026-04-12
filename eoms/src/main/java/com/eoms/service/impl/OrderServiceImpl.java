@@ -8,6 +8,7 @@ import com.eoms.entity.Product;
 import com.eoms.entity.Customer;
 import com.eoms.config.Logger;
 import com.eoms.inventory.InventoryManager;
+import com.eoms.util.InputValidator;
 
 public class OrderServiceImpl implements OrderService {
     private final OrderInterface orderDAO;
@@ -22,14 +23,22 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order createOrder(int orderId, Customer customer) {
+    public Order createOrder(Customer customer) {
+        InputValidator.validateNotNull(customer, "Customer");
+
         Logger logger = Logger.getInstance();
+
+        int orderId = orderDAO.getNextOrderId();
         logger.info("Creating order with ID: " + orderId);
         return new Order(orderId, customer);
     }
 
     @Override
     public boolean addProductToOrder(Order order, int productId, int quantity) {
+        InputValidator.validateNotNull(order, "Order");
+        InputValidator.validatePositiveInt(productId, "Product ID");
+        InputValidator.validateQuantity(quantity);
+
         Logger logger = Logger.getInstance();
         logger.info("Adding product to order. Product ID: " + productId);
         if (quantity <= 0) {
@@ -77,9 +86,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public double finalizeOrder(Order order) {
+        InputValidator.validateNotNull(order, "Order");
+
         Logger logger = Logger.getInstance();
         logger.info("Finalizing order ID: " + order.getOrderId());
+
+        Order existingOrder = orderDAO.findOrderById(order.getOrderId());
+        if (existingOrder != null) {
+            logger.error("Order already created with ID: " + order.getOrderId());
+            throw new IllegalArgumentException("Order already created with ID: " + order.getOrderId());
+        }
+
         orderDAO.saveOrder(order);
+        order.markFinalized();
         double total = order.getTotal();
         logger.log("Order saved. Total = " + total);
         return total;

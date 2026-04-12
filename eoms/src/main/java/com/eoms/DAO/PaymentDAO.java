@@ -15,4 +15,14 @@ public class PaymentDAO implements PaymentInterface {
         System.out.println("Payment recorded. ID: " + payment.getPaymentId());
     }
 
+    @Override
+    public Payment findPaymentById(int paymentId) {
+        for (Payment payment : payments) {
+            if (payment.getPaymentId() == paymentId) {
+                return payment;
+            }
+        }
+        return null; // not found
+    }
+
 }
