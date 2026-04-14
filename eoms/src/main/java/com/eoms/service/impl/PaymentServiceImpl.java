@@ -1,6 +1,9 @@
 package com.eoms.service.impl;
 
 import com.eoms.service.PaymentService;
+import com.eoms.observer.OrderEvent;
+import com.eoms.observer.OrderEventManager;
+import com.eoms.observer.OrderEventType;
 import com.eoms.DAO.PaymentInterface;
 import com.eoms.entity.Payment;
 import com.eoms.entity.Order;
@@ -51,7 +54,6 @@ public class PaymentServiceImpl implements PaymentService {
             logger.error("Payment declined. Reason: " + declinedStatus);
             return payment;
         }
-
         String status = processor.getPaymentStatus();
         order.setStatus(status);
         logger.info("Payment processor returned status: " + status);
@@ -61,6 +63,14 @@ public class PaymentServiceImpl implements PaymentService {
 
         paymentDAO.savePayment(payment);
         logger.log("Payment saved");
+
+        OrderEventManager.getInstance().notifyListeners(
+            new OrderEvent(
+                OrderEventType.ORDER_PAID,
+                order,
+                "Your payment was completed successfully."
+            )
+        );
 
         return payment;
     }

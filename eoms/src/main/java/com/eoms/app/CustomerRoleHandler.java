@@ -1,37 +1,31 @@
 package com.eoms.app;
 
+import com.eoms.app.mediator.CustomerMediator;
+import com.eoms.app.mediator.CustomerMediatorImpl;
 import com.eoms.abstract_factory.ui.Dashboard;
 import com.eoms.abstract_factory.ui.Menu;
+import com.eoms.abstract_factory.ui.UIFactory;
 import com.eoms.abstract_factory.ui.UserRole;
 import com.eoms.bridge_notification.Notification;
 import com.eoms.config.UIFactoryRegistry;
-import com.eoms.entity.Customer;
-import com.eoms.entity.Order;
-import com.eoms.entity.Payment;
-import com.eoms.factory.PaymentProcessor;
 import com.eoms.service.OrderService;
 import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.Boundary.CheckoutView;
 import com.eoms.Boundary.PaymentView;
 import com.eoms.Boundary.OrderTrackingView;
-
-import java.util.Scanner;
 import com.eoms.util.InputValidator;
 
+import java.util.Scanner;
+
 /**
- * Encapsulates the complete customer interaction loop.  Business logic is
- * delegated to service layer classes; Main no longer needs to know the
- * details of invoice fees or which processor to use (SRP, DIP).
+ * Handles customer role interactions by managing the UI flow and delegating
+ * business coordination to the mediator. This class is responsible for:
+ * - UI presentation (dashboard, menu, input handling)
+ * - User interaction flow
+ * - Delegating business logic to the mediator
  */
 public class CustomerRoleHandler implements RoleHandler {
-    private final ProductCatalogView catalogView;
-    private final CheckoutView checkoutView;
-    private final PaymentView paymentView;
-    private final OrderTrackingView trackingView;
-    private final OrderService orderService;
-    private final Notification orderConfirmationNotification;
-    private final Notification paymentReceiptNotification;
-    private final PaymentProcessorProvider paymentProcessorProvider;
+    private final CustomerMediator customerMediator;
 
     public CustomerRoleHandler(
             ProductCatalogView catalogView,
@@ -42,32 +36,40 @@ public class CustomerRoleHandler implements RoleHandler {
             Notification orderConfirmationNotification,
             Notification paymentReceiptNotification,
             PaymentProcessorProvider paymentProcessorProvider) {
-        this.catalogView = catalogView;
-        this.checkoutView = checkoutView;
-        this.paymentView = paymentView;
-        this.trackingView = trackingView;
-        this.orderService = orderService;
-        this.orderConfirmationNotification = orderConfirmationNotification;
-        this.paymentReceiptNotification = paymentReceiptNotification;
+        // Unused parameters kept for backward compatibility with EomsApplication
+        // The mediator is now responsible for coordinating these components
         if (paymentProcessorProvider == null) {
             throw new IllegalArgumentException("paymentProcessorProvider must not be null");
         }
-        this.paymentProcessorProvider = paymentProcessorProvider;
+        
+        // Create mediator for business coordination
+        this.customerMediator = new CustomerMediatorImpl(
+                catalogView,
+                checkoutView,
+                paymentView,
+                trackingView,
+                paymentProcessorProvider);
     }
 
     @Override
     public void handle(Scanner scanner) {
-        Dashboard dashboard = UIFactoryRegistry.getUIFactory(UserRole.CUSTOMER).createDashboard();
-        Menu menu = UIFactoryRegistry.getUIFactory(UserRole.CUSTOMER).createMenu();
+        // Set scanner for mediator's input operations
+        customerMediator.setScanner(scanner);
+
+        // Get UI components for customer role
+        UIFactory uiFactory = UIFactoryRegistry.getUIFactory(UserRole.CUSTOMER);
+        Dashboard dashboard = uiFactory.createDashboard();
+        Menu menu = uiFactory.createMenu();
+
+        // Display dashboard
         dashboard.showDashboard();
 
+        // Handle user interaction loop
         boolean customerRunning = true;
-        Customer customer = new Customer(1, "Customer", "customer@email.com");
-        Order order = null;
-
         while (customerRunning) {
             menu.showMenu();
-            int choice;
+
+            int choice = 0;
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
                 InputValidator.validateRange(choice, 0, 6, "Menu choice");
@@ -78,86 +80,25 @@ public class CustomerRoleHandler implements RoleHandler {
                 continue;
             }
 
+            // Delegate business coordination to mediator
             switch (choice) {
                 case 1:
-                    catalogView.displayProducts();
+                    customerMediator.viewCatalog();
                     break;
-                case 2: // create order
-                    if (order != null && !order.isFinalized()) {
-                        System.out.println("Finish or pay the current order before creating a new one.");
-                        break;
-                    }
-                    Order newOrder = checkoutView.createOrder(customer);
-                    if (newOrder != null) {
-                        order = newOrder;
-                    }
+                case 2:
+                    customerMediator.createNewOrder();
                     break;
-                case 3: // add product to order
-                    if (order != null) {
-                        if (order.isFinalized()) {
-                            System.out.println("The current order is already complete. Create a new order to continue.");
-                        } else {
-                            checkoutView.addProductToOrder(order);
-                        }
-                    } else {
-                        System.out.println("Create an order first.");
-                    }
+                case 3:
+                    customerMediator.addProductToCurrentOrder();
                     break;
-                case 4: // finalize
-                    if (order != null && !order.getItems().isEmpty()) {
-                        double total = orderService.finalizeOrder(order);
-                        System.out.println("Order finalized. Total: " + total);
-                        orderConfirmationNotification.send("Order ID " + order.getOrderId() + " total = " + total);
-                    } else {
-                        System.out.println("Create an order and add items first.");
-                    }
+                case 4:
+                    customerMediator.finalizeCurrentOrder();
                     break;
-                case 5: // payment
-                    if (order != null && !order.getItems().isEmpty()) {
-                        if (order.getStatus() != null && order.getStatus().contains("Paid")) {
-                            System.out.println("Order already paid.");
-                            break;
-                        }
-                        boolean paid = false;
-                        while (!paid) {
-                            System.out.println("Choose payment method:");
-                            System.out.println("1. Credit Card");
-                            System.out.println("2. PayPal");
-                            System.out.println("3. Cash On Delivery");
-                            System.out.println("0. Cancel");
-
-                            int paymentChoice = scanner.nextInt();
-                            InputValidator.validateRange(paymentChoice, 0, 3, "Payment choice");
-                            scanner.nextLine();
-
-                            if (paymentChoice == 0) {
-                                break;
-                            }
-
-                            PaymentProcessor processor = paymentProcessorProvider.getProcessor(paymentChoice);
-                            if (processor == null) {
-                                System.out.println("Invalid payment method.");
-                                continue;
-                            }
-
-                            // delegate ID prompt and service call to view
-                            Payment payment = paymentView.makePayment(order, processor);
-
-                            if ("Approved".equals(payment.getStatus())) {
-                                paymentReceiptNotification.send(
-                                        "Payment ID " + payment.getPaymentId() + " approved for order ID " + order.getOrderId());
-                                paid = true;
-                            } else {
-                                // payment declined (e.g., exceeded COD cap). Let the user try another method.
-                                System.out.println("Payment failed. Please choose another payment method.");
-                            }
-                        }
-                    } else {
-                        System.out.println("Create an order first.");
-                    }
+                case 5:
+                    customerMediator.processPaymentForOrder();
                     break;
                 case 6:
-                    trackingView.trackOrder();
+                    customerMediator.trackCurrentOrder();
                     break;
                 case 0:
                     customerRunning = false;
@@ -167,5 +108,4 @@ public class CustomerRoleHandler implements RoleHandler {
             }
         }
     }
-
 }

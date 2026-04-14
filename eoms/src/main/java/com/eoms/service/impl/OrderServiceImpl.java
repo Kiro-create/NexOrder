@@ -1,6 +1,9 @@
 package com.eoms.service.impl;
 
 import com.eoms.service.OrderService;
+import com.eoms.observer.OrderEvent;
+import com.eoms.observer.OrderEventManager;
+import com.eoms.observer.OrderEventType;
 import com.eoms.DAO.OrderInterface;
 import com.eoms.DAO.ProductInterface;
 import com.eoms.entity.Order;
@@ -30,7 +33,18 @@ public class OrderServiceImpl implements OrderService {
 
         int orderId = orderDAO.getNextOrderId();
         logger.info("Creating order with ID: " + orderId);
-        return new Order(orderId, customer);
+
+        Order order = new Order(orderId, customer);
+
+        OrderEventManager.getInstance().notifyListeners(
+            new OrderEvent(
+                OrderEventType.ORDER_CREATED,
+                order,
+                "Your order has been created successfully."
+            )
+        );
+
+        return order;
     }
 
     @Override
@@ -99,6 +113,15 @@ public class OrderServiceImpl implements OrderService {
 
         orderDAO.saveOrder(order);
         order.markFinalized();
+
+        OrderEventManager.getInstance().notifyListeners(
+            new OrderEvent(
+                OrderEventType.ORDER_FINALIZED,
+                order,
+                "Your order has been finalized successfully."
+            )
+        );
+
         double total = order.getTotal();
         logger.log("Order saved. Total = " + total);
         return total;

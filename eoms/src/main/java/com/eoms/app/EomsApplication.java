@@ -1,6 +1,11 @@
 package com.eoms.app;
 
 import com.eoms.Boundary.AdminReportView;
+import com.eoms.observer.EmailNotificationListener;
+import com.eoms.observer.OrderEventManager;
+import com.eoms.observer.OrderEventType;
+import com.eoms.observer.SmsNotificationListener;
+import com.eoms.observer.WhatsAppNotificationListener;
 import com.eoms.Boundary.CheckoutView;
 import com.eoms.adapter.DHLShippingAdapter;
 import com.eoms.Boundary.OrderTrackingView;
@@ -81,8 +86,8 @@ public class EomsApplication {
         this.paymentReceiptNotification = new PaymentReceiptNotification(emailSender);
 
         // Decorator: timestamp on SMS shipping updates.
-        MessageSender shippingChannel = new TimestampMessageSenderDecorator(new SmsSender());
-        this.shippingUpdateNotification = new ShippingUpdateNotification(shippingChannel);
+        MessageSender smsSender = new TimestampMessageSenderDecorator(new SmsSender());
+        this.shippingUpdateNotification = new ShippingUpdateNotification(smsSender);
 
         // views
         this.catalogView = new ProductCatalogView(productService, scanner);
@@ -90,6 +95,27 @@ public class EomsApplication {
         this.checkoutView = new CheckoutView(orderService, scanner);
         this.paymentView = new PaymentView(paymentService, scanner);
         this.trackingView = new OrderTrackingView(shippingService, scanner, shippingUpdateNotification);
+        OrderEventManager eventManager = OrderEventManager.getInstance();
+
+     // Create listeners using existing senders
+        EmailNotificationListener emailListener = new EmailNotificationListener(emailSender);
+        SmsNotificationListener smsListener = new SmsNotificationListener(smsSender);
+        WhatsAppNotificationListener whatsAppListener = new WhatsAppNotificationListener(whatsAppSender);
+
+        // ORDER CREATED
+        eventManager.subscribe(OrderEventType.ORDER_CREATED, emailListener);
+        eventManager.subscribe(OrderEventType.ORDER_CREATED, smsListener);
+        eventManager.subscribe(OrderEventType.ORDER_CREATED, whatsAppListener);
+
+        // ORDER FINALIZED
+        eventManager.subscribe(OrderEventType.ORDER_FINALIZED, emailListener);
+        eventManager.subscribe(OrderEventType.ORDER_FINALIZED, smsListener);
+        eventManager.subscribe(OrderEventType.ORDER_FINALIZED, whatsAppListener);
+
+        // ORDER PAID
+        eventManager.subscribe(OrderEventType.ORDER_PAID, emailListener);
+        eventManager.subscribe(OrderEventType.ORDER_PAID, smsListener);
+        eventManager.subscribe(OrderEventType.ORDER_PAID, whatsAppListener);
     }
 
 
