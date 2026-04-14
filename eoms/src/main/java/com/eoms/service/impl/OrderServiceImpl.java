@@ -36,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
 
         Order order = new Order(orderId, customer);
 
+        logger.info("OrderServiceImpl: Publishing ORDER_CREATED event for order ID: " + orderId);
         OrderEventManager.getInstance().notifyListeners(
             new OrderEvent(
                 OrderEventType.ORDER_CREATED,
@@ -43,6 +44,7 @@ public class OrderServiceImpl implements OrderService {
                 "Your order has been created successfully."
             )
         );
+        logger.info("OrderServiceImpl: ORDER_CREATED event published successfully");
 
         return order;
     }
@@ -114,6 +116,7 @@ public class OrderServiceImpl implements OrderService {
         orderDAO.saveOrder(order);
         order.markFinalized();
 
+        logger.info("OrderServiceImpl: Publishing ORDER_FINALIZED event for order ID: " + order.getOrderId());
         OrderEventManager.getInstance().notifyListeners(
             new OrderEvent(
                 OrderEventType.ORDER_FINALIZED,
@@ -121,6 +124,7 @@ public class OrderServiceImpl implements OrderService {
                 "Your order has been finalized successfully."
             )
         );
+        logger.info("OrderServiceImpl: ORDER_FINALIZED event published successfully");
 
         double total = order.getTotal();
         logger.log("Order saved. Total = " + total);

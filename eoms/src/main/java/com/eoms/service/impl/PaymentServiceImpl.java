@@ -64,6 +64,7 @@ public class PaymentServiceImpl implements PaymentService {
         paymentDAO.savePayment(payment);
         logger.log("Payment saved");
 
+        logger.info("PaymentServiceImpl: Publishing ORDER_PAID event for order ID: " + order.getOrderId());
         OrderEventManager.getInstance().notifyListeners(
             new OrderEvent(
                 OrderEventType.ORDER_PAID,
@@ -71,6 +72,7 @@ public class PaymentServiceImpl implements PaymentService {
                 "Your payment was completed successfully."
             )
         );
+        logger.info("PaymentServiceImpl: ORDER_PAID event published successfully");
 
         return payment;
     }
