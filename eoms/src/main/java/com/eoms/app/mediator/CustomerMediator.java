@@ -25,14 +25,9 @@ public interface CustomerMediator {
     void addProductToCurrentOrder();
     
     /**
-     * Finalizes the current order.
+     * Completes the order process using the order processing mediator.
      */
-    void finalizeCurrentOrder();
-    
-    /**
-     * Processes payment for the current order.
-     */
-    void processPaymentForOrder();
+    void completeOrder();
     
     /**
      * Tracks the current order status.

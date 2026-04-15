@@ -9,6 +9,7 @@ import com.eoms.abstract_factory.ui.UserRole;
 import com.eoms.bridge_notification.Notification;
 import com.eoms.config.UIFactoryRegistry;
 import com.eoms.service.OrderService;
+import com.eoms.service.OrderProcessingMediator;
 import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.Boundary.CheckoutView;
 import com.eoms.Boundary.PaymentView;
@@ -36,6 +37,19 @@ public class CustomerRoleHandler implements RoleHandler {
             Notification orderConfirmationNotification,
             Notification paymentReceiptNotification,
             PaymentProcessorProvider paymentProcessorProvider) {
+        this(catalogView, checkoutView, paymentView, trackingView, orderService, orderConfirmationNotification, paymentReceiptNotification, paymentProcessorProvider, null);
+    }
+
+    public CustomerRoleHandler(
+            ProductCatalogView catalogView,
+            CheckoutView checkoutView,
+            PaymentView paymentView,
+            OrderTrackingView trackingView,
+            OrderService orderService,
+            Notification orderConfirmationNotification,
+            Notification paymentReceiptNotification,
+            PaymentProcessorProvider paymentProcessorProvider,
+            OrderProcessingMediator orderProcessingMediator) {
         // Unused parameters kept for backward compatibility with EomsApplication
         // The mediator is now responsible for coordinating these components
         if (paymentProcessorProvider == null) {
@@ -48,7 +62,8 @@ public class CustomerRoleHandler implements RoleHandler {
                 checkoutView,
                 paymentView,
                 trackingView,
-                paymentProcessorProvider);
+                paymentProcessorProvider,
+                orderProcessingMediator);
     }
 
     @Override
@@ -72,7 +87,7 @@ public class CustomerRoleHandler implements RoleHandler {
             int choice = 0;
             if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
-                InputValidator.validateRange(choice, 0, 6, "Menu choice");
+                InputValidator.validateRange(choice, 0, 5, "Menu choice");
                 scanner.nextLine();
             } else {
                 System.out.println("Invalid input. Please enter a number.");
@@ -92,12 +107,9 @@ public class CustomerRoleHandler implements RoleHandler {
                     customerMediator.addProductToCurrentOrder();
                     break;
                 case 4:
-                    customerMediator.finalizeCurrentOrder();
+                    customerMediator.completeOrder();
                     break;
                 case 5:
-                    customerMediator.processPaymentForOrder();
-                    break;
-                case 6:
                     customerMediator.trackCurrentOrder();
                     break;
                 case 0:

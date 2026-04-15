@@ -8,4 +8,6 @@ public interface ShipmentInterface {
 
     Shipment findShipmentByOrder(int orderId);
 
+    int getNextShipmentId();
+
 }

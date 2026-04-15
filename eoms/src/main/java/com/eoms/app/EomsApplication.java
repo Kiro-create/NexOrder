@@ -13,10 +13,19 @@ import com.eoms.Boundary.PaymentView;
 import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.DAO.OrderInterface;
 import com.eoms.DAO.PaymentInterface;
+import com.eoms.DAO.ShipmentInterface;
+import com.eoms.DAO.ShipmentDAO;
 import com.eoms.DAO.ProductInterface;
 import com.eoms.DAO.OrderDAO;
 import com.eoms.DAO.PaymentDAO;
 import com.eoms.DAO.ProductDAO;
+import com.eoms.service.OrderProcessingMediator;
+import com.eoms.service.impl.OrderProcessingMediatorImpl;
+import com.eoms.service.OrderService;
+import com.eoms.service.PaymentService;
+import com.eoms.service.ProductService;
+import com.eoms.service.ReportService;
+import com.eoms.service.ShippingService;
 import com.eoms.bridge_notification.EmailSender;
 import com.eoms.bridge_notification.MessageSender;
 import com.eoms.bridge_notification.Notification;
@@ -39,6 +48,7 @@ import com.eoms.config.SingletonInitializer;
 
 import java.util.Scanner;
 import com.eoms.util.InputValidator;
+import com.eoms.app.PaymentProcessorProvider;
 
 /**
  * This class wires dependencies and exposes a single run() method.
@@ -56,6 +66,7 @@ public class EomsApplication {
     private final Notification shippingUpdateNotification;
     private final ProductInterface productDAO;
     private final AdminReportView adminReportView;
+    private final OrderProcessingMediator orderProcessingMediator;
 
     public EomsApplication(Scanner scanner) {
         this.scanner = scanner;
@@ -63,6 +74,7 @@ public class EomsApplication {
         // DAOs
         OrderInterface orderDAO = new OrderDAO();
         PaymentInterface paymentDAO = new PaymentDAO();
+        ShipmentInterface shipmentDAO = new ShipmentDAO();
 
         this.productDAO = new ProductDAO();
 
@@ -73,6 +85,9 @@ public class EomsApplication {
         this.orderService = new OrderServiceImpl(orderDAO, productDAO);
         this.paymentService = new PaymentServiceImpl(paymentDAO);
         ShippingService shippingService = new DHLShippingAdapter();
+
+        // Mediator
+        this.orderProcessingMediator = new OrderProcessingMediatorImpl(orderService, paymentService, shippingService, paymentDAO, shipmentDAO);
 
         // Decorator: timestamp on email/WhatsApp bodies for order notifications and email receipts.
         MessageSender emailSender = new TimestampMessageSenderDecorator(new EmailSender());
@@ -118,7 +133,6 @@ public class EomsApplication {
         eventManager.subscribe(OrderEventType.ORDER_PAID, whatsAppListener);
     }
 
-
     public void run() {
         // Initialize all singletons once at startup
         SingletonInitializer.initialize();
@@ -159,7 +173,8 @@ public class EomsApplication {
                             orderService,
                             orderConfirmationNotification,
                             paymentReceiptNotification,
-                            paymentProcessorProvider)
+                            paymentProcessorProvider,
+                            orderProcessingMediator)
                             .handle(scanner);
                     break;
                 default:

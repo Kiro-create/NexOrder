@@ -6,6 +6,7 @@ import com.eoms.entity.Shipment;
 public class ShipmentDAO implements ShipmentInterface {
 
     private List<Shipment> shipments = new ArrayList<>();
+    private int nextShipmentId = 1;
 
     @Override
     public void saveShipment(Shipment shipment) {
@@ -28,6 +29,11 @@ public class ShipmentDAO implements ShipmentInterface {
         }
 
         return null;
+    }
+
+    @Override
+    public int getNextShipmentId() {
+        return nextShipmentId++;
     }
 
 }

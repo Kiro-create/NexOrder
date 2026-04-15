@@ -6,6 +6,7 @@ import com.eoms.entity.Payment;
 public class PaymentDAO implements PaymentInterface {
 
     private List<Payment> payments = new ArrayList<>();
+    private int nextPaymentId = 1;
 
     @Override
     public void savePayment(Payment payment) {
@@ -23,6 +24,11 @@ public class PaymentDAO implements PaymentInterface {
             }
         }
         return null; // not found
+    }
+
+    @Override
+    public int getNextPaymentId() {
+        return nextPaymentId++;
     }
 
 }

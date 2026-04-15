@@ -29,14 +29,9 @@ public class OrderServiceImpl implements OrderService {
     public Order createOrder(Customer customer) {
         InputValidator.validateNotNull(customer, "Customer");
 
-        Logger logger = Logger.getInstance();
-
         int orderId = orderDAO.getNextOrderId();
-        logger.info("Creating order with ID: " + orderId);
-
         Order order = new Order(orderId, customer);
 
-        logger.info("OrderServiceImpl: Publishing ORDER_CREATED event for order ID: " + orderId);
         OrderEventManager.getInstance().notifyListeners(
             new OrderEvent(
                 OrderEventType.ORDER_CREATED,
@@ -44,7 +39,6 @@ public class OrderServiceImpl implements OrderService {
                 "Your order has been created successfully."
             )
         );
-        logger.info("OrderServiceImpl: ORDER_CREATED event published successfully");
 
         return order;
     }
@@ -55,21 +49,16 @@ public class OrderServiceImpl implements OrderService {
         InputValidator.validatePositiveInt(productId, "Product ID");
         InputValidator.validateQuantity(quantity);
 
-        Logger logger = Logger.getInstance();
-        logger.info("Adding product to order. Product ID: " + productId);
         if (quantity <= 0) {
-            logger.error("Invalid quantity for product: " + productId);
             return false;
         }
 
         Product product = productDAO.findProductById(productId);
         if (product == null) {
-            logger.error("Product not found: " + productId);
             return false;
         }
         boolean available = InventoryManager.getInstance().reserveStock(product, quantity);
         if (!available) {
-            logger.error("Not enough stock for product: " + productId);
             return false;
         }
 
@@ -87,7 +76,6 @@ public class OrderServiceImpl implements OrderService {
         double currentTotal = order.getTotal() == 0 ? itemTotal : order.getTotal() + itemTotal;
         order.setTotal(currentTotal);
 
-        logger.log("Product added. Quantity: " + quantity + "; item total: " + itemTotal);
         return true;
     }
 
@@ -104,19 +92,14 @@ public class OrderServiceImpl implements OrderService {
     public double finalizeOrder(Order order) {
         InputValidator.validateNotNull(order, "Order");
 
-        Logger logger = Logger.getInstance();
-        logger.info("Finalizing order ID: " + order.getOrderId());
-
         Order existingOrder = orderDAO.findOrderById(order.getOrderId());
         if (existingOrder != null) {
-            logger.error("Order already created with ID: " + order.getOrderId());
             throw new IllegalArgumentException("Order already created with ID: " + order.getOrderId());
         }
 
         orderDAO.saveOrder(order);
         order.markFinalized();
 
-        logger.info("OrderServiceImpl: Publishing ORDER_FINALIZED event for order ID: " + order.getOrderId());
         OrderEventManager.getInstance().notifyListeners(
             new OrderEvent(
                 OrderEventType.ORDER_FINALIZED,
@@ -124,10 +107,8 @@ public class OrderServiceImpl implements OrderService {
                 "Your order has been finalized successfully."
             )
         );
-        logger.info("OrderServiceImpl: ORDER_FINALIZED event published successfully");
 
         double total = order.getTotal();
-        logger.log("Order saved. Total = " + total);
         return total;
     }
 }

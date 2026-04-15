@@ -8,4 +8,6 @@ public interface PaymentInterface {
 
 	Payment findPaymentById(int paymentId);
 
+	int getNextPaymentId();
+
 }
