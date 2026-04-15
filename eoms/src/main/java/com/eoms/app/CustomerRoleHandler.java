@@ -9,7 +9,7 @@ import com.eoms.abstract_factory.ui.UserRole;
 import com.eoms.bridge_notification.Notification;
 import com.eoms.config.UIFactoryRegistry;
 import com.eoms.service.OrderService;
-import com.eoms.service.OrderProcessingMediator;
+import com.eoms.app.mediator.OrderProcessingMediator;
 import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.Boundary.CheckoutView;
 import com.eoms.Boundary.PaymentView;

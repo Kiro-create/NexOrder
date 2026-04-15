@@ -7,7 +7,7 @@ import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.abstract_factory.ui.PaymentMethodSelector;
 import com.eoms.abstract_factory.ui.CustomerPaymentMethodSelector;
 import com.eoms.app.PaymentProcessorProvider;
-import com.eoms.service.OrderProcessingMediator;
+import com.eoms.app.mediator.OrderProcessingMediator;
 import com.eoms.config.Logger;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;

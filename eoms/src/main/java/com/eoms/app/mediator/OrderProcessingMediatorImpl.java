@@ -1,6 +1,6 @@
-package com.eoms.service.impl;
+package com.eoms.app.mediator;
 
-import com.eoms.service.OrderProcessingMediator;
+import com.eoms.app.mediator.OrderProcessingMediator;
 import com.eoms.service.OrderService;
 import com.eoms.service.PaymentService;
 import com.eoms.service.ShippingService;
