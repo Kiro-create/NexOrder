@@ -1,6 +1,7 @@
 package com.eoms.config;
 
 import com.eoms.inventory.InventoryManager;
+import com.eoms.observer.OrderEventManager;
 
 /**
  * Centralized initializer for all singletons in the application.
@@ -22,6 +23,7 @@ public class SingletonInitializer {
         // Initialize singletons in dependency order
         Logger.getInstance();  // Logger first, as others might log
         InventoryManager.getInstance();
+        OrderEventManager.getInstance();
 
         initialized = true;
     }
