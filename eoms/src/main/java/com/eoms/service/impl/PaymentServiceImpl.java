@@ -9,6 +9,8 @@ import com.eoms.entity.Payment;
 import com.eoms.entity.Order;
 import com.eoms.config.Logger;
 import com.eoms.factory.PaymentProcessor;
+import com.eoms.strategy.PaymentContext;
+import com.eoms.strategy.PaymentMethodAdapter;
 import com.eoms.util.InputValidator;
 
 public class PaymentServiceImpl implements PaymentService {
@@ -36,7 +38,7 @@ public class PaymentServiceImpl implements PaymentService {
             throw new IllegalArgumentException("Payment already created with ID: " + paymentId);
         }
 
-        double amount = order.getTotal() > 0 ? order.getTotal() : order.calculateTotal();
+        double amount = order.getTotalPrice() > 0 ? order.getTotalPrice() : order.calculateTotal();
         InputValidator.validatePrice(amount);
         logger.log("Order total calculated: " + amount);
 
@@ -44,7 +46,10 @@ public class PaymentServiceImpl implements PaymentService {
         logger.log("Payment object created with id: " + paymentId);
 
         try {
-            processor.processOrder(amount);
+            // Strategy: execute payment through PaymentContext (adapter wraps existing processor)
+            PaymentContext context = new PaymentContext();
+            context.setStrategy(new PaymentMethodAdapter(processor));
+            context.execute(amount);
         } catch (RuntimeException ex) {
             String declinedStatus = "Declined";
             if (ex.getMessage() != null && !ex.getMessage().isBlank()) {

@@ -1,16 +1,15 @@
 package com.eoms.service.impl;
 
-import com.eoms.service.OrderService;
+import com.eoms.DAO.OrderInterface;
+import com.eoms.DAO.ProductInterface;
+import com.eoms.entity.Customer;
+import com.eoms.entity.Order;
+import com.eoms.entity.Product;
+import com.eoms.inventory.InventoryManager;
 import com.eoms.observer.OrderEvent;
 import com.eoms.observer.OrderEventManager;
 import com.eoms.observer.OrderEventType;
-import com.eoms.DAO.OrderInterface;
-import com.eoms.DAO.ProductInterface;
-import com.eoms.entity.Order;
-import com.eoms.entity.Product;
-import com.eoms.entity.Customer;
-import com.eoms.config.Logger;
-import com.eoms.inventory.InventoryManager;
+import com.eoms.service.OrderService;
 import com.eoms.util.InputValidator;
 
 public class OrderServiceImpl implements OrderService {
@@ -43,52 +42,28 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
-    @Override
+@Override
     public boolean addProductToOrder(Order order, int productId, int quantity) {
         InputValidator.validateNotNull(order, "Order");
         InputValidator.validatePositiveInt(productId, "Product ID");
         InputValidator.validateQuantity(quantity);
 
-        if (quantity <= 0) {
-            return false;
-        }
+        if (quantity <= 0) return false;
 
         Product product = productDAO.findProductById(productId);
-        if (product == null) {
-            return false;
-        }
-        boolean available = InventoryManager.getInstance().reserveStock(product, quantity);
-        if (!available) {
-            return false;
-        }
+        if (product == null) return false;
 
-        // attach item and update totals (business rule moved from Main)
+        boolean available = InventoryManager.getInstance().reserveStock(product, quantity);
+        if (!available) return false;
+
+        // attach item
         order.addProduct(product, quantity);
 
-        // calculate extra fees based on product type
-        com.eoms.abstract_factory.ProductTypeFactory factory =
-                com.eoms.app.ProductTypeFactoryProvider.getFactory(product.getType());
-        com.eoms.abstract_factory.InvoicePolicy invoicePolicy = factory.createInvoicePolicy();
-        double subtotal = product.getPrice() * quantity;
-        double extraFees = invoicePolicy.calculateExtraFees(product);
-        double itemTotal = subtotal + extraFees;
-
-        double currentTotal = order.getTotal() == 0 ? itemTotal : order.getTotal() + itemTotal;
-        order.setTotal(currentTotal);
-
+    
         return true;
     }
 
-    @Override
-    public Product selectProductFromCatalog() {
-        if (productDAO.getAllProducts().isEmpty()) {
-            System.out.println("No products available.");
-            return null;
-        }
-        return productDAO.getAllProducts().get(0);
-    }
-
-    @Override
+@Override
     public double finalizeOrder(Order order) {
         InputValidator.validateNotNull(order, "Order");
 
@@ -108,7 +83,15 @@ public class OrderServiceImpl implements OrderService {
             )
         );
 
-        double total = order.getTotal();
-        return total;
+        return order.calculateTotal();
+    }
+
+@Override
+    public Product selectProductFromCatalog() {
+        if (productDAO.getAllProducts().isEmpty()) {
+            System.out.println("No products available.");
+            return null;
+        }
+        return productDAO.getAllProducts().get(0);
     }
 }

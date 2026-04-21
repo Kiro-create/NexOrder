@@ -7,11 +7,9 @@ import com.eoms.Boundary.ProductCatalogView;
 import com.eoms.abstract_factory.ui.PaymentMethodSelector;
 import com.eoms.abstract_factory.ui.CustomerPaymentMethodSelector;
 import com.eoms.app.PaymentProcessorProvider;
-import com.eoms.app.mediator.OrderProcessingMediator;
 import com.eoms.config.Logger;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
-import com.eoms.entity.Payment;
 import com.eoms.factory.PaymentProcessor;
 import com.eoms.util.InputValidator;
 
@@ -158,7 +156,6 @@ public class CustomerMediatorImpl implements CustomerMediator {
                 continue;
             }
 
-            // Get the appropriate payment processor from the provider
             PaymentProcessor processor = paymentProcessorProvider.getProcessor(paymentChoice);
             if (processor == null) {
                 Logger.getInstance().error("CustomerMediator: No payment processor found for choice: " + paymentChoice);
@@ -166,15 +163,20 @@ public class CustomerMediatorImpl implements CustomerMediator {
                 continue;
             }
 
-            // Use the OrderProcessingMediator to complete the entire workflow
-            boolean success = orderProcessingMediator.processOrder(currentOrder, processor);
+        boolean success = orderProcessingMediator.processOrder(currentOrder, processor);
 
-            if (success) {
-                System.out.println("Checkout completed successfully! Your order has been processed and shipped.");
-                completed = true;
-            } else {
-                System.out.println("Checkout failed. Please try again or choose another payment method.");
+        if (success) {
+            System.out.println("Checkout completed successfully!");
+            completed = true;
+        } else {
+            System.out.println("Checkout failed. Try again.");
+            if (currentOrder.isFinalized()) {
+                Logger.getInstance().error("CustomerMediator: Order was finalized but processing failed later; cannot retry with same order. Order ID: " + currentOrder.getOrderId());
+                System.out.println("This order is already finalized. Create a new order to try again.");
+                break;
             }
+        }
+
         }
     }
 

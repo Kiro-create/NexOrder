@@ -8,6 +8,8 @@ public interface OrderInterface {
 
     Order findOrderById(int orderId);
 
+    OrderIterator createIterator();
+
     int getNextOrderId();
 
 }

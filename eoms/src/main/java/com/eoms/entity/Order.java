@@ -10,7 +10,6 @@ public class Order {
     private String status;
     private Product product;
     private int quantity;
-    private double total;
     private boolean finalized;
     
     public void setQuantity(int quantity) {
@@ -42,16 +41,13 @@ public class Order {
 
     }
 
-    public double calculateTotal() {
-
-        double total = 0;
-
-        for (OrderItem item : items) {
-            total += item.getSubtotal();
-        }
-
-        return total;
+   public double calculateTotal() {
+    double total = 0;
+    for (OrderItem item : items) {
+        total += item.getSubtotal();
     }
+    return total;
+}
 
     public int getOrderId() {
         return orderId;
@@ -65,13 +61,10 @@ public class Order {
         this.status = status;
     }
 
-    public double getTotal() {
-        return total;
-    }
+   public double getTotalPrice() {
+    return calculateTotal();
+}
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
 
     public boolean isFinalized() {
         return finalized;
@@ -84,5 +77,6 @@ public class Order {
     public List<OrderItem> getItems() {
         return items;
     }
+    
 
 }

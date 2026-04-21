@@ -35,11 +35,6 @@ import com.eoms.bridge_notification.ShippingUpdateNotification;
 import com.eoms.bridge_notification.SmsSender;
 import com.eoms.bridge_notification.WhatsAppSender;
 import com.eoms.bridge_notification.decorator.TimestampMessageSenderDecorator;
-import com.eoms.service.OrderService;
-import com.eoms.service.PaymentService;
-import com.eoms.service.ProductService;
-import com.eoms.service.ReportService;
-import com.eoms.service.ShippingService;
 import com.eoms.service.impl.OrderServiceImpl;
 import com.eoms.service.impl.PaymentServiceImpl;
 import com.eoms.service.impl.ProductServiceImpl;
@@ -48,7 +43,6 @@ import com.eoms.config.SingletonInitializer;
 
 import java.util.Scanner;
 import com.eoms.util.InputValidator;
-import com.eoms.app.PaymentProcessorProvider;
 
 /**
  * This class wires dependencies and exposes a single run() method.
@@ -87,7 +81,7 @@ public class EomsApplication {
         ShippingService shippingService = new DHLShippingAdapter();
 
         // Mediator
-        this.orderProcessingMediator = new OrderProcessingMediatorImpl(orderService, paymentService, shippingService, paymentDAO, shipmentDAO);
+        this.orderProcessingMediator = new OrderProcessingMediatorImpl(orderService, paymentService, paymentDAO, shipmentDAO);
 
         // Decorator: timestamp on email/WhatsApp bodies for order notifications and email receipts.
         MessageSender emailSender = new TimestampMessageSenderDecorator(new EmailSender());

@@ -2,6 +2,7 @@ package com.eoms.DAO;
 
 import java.util.*;
 import com.eoms.entity.Order;
+import com.eoms.config.Logger;
 
 public class OrderDAO implements OrderInterface {
 
@@ -18,16 +19,23 @@ public class OrderDAO implements OrderInterface {
 
     @Override
     public Order findOrderById(int orderId) {
-
-        for (Order o : orders) {
-
+        // Intentionally implemented via Iterator pattern (client uses OrderDAO through this API).
+        Logger.getInstance().info("OrderDAO: findOrderById using OrderIterator (orderId=" + orderId + ")");
+        System.out.println("[INFO] OrderDAO: iterating orders via OrderIterator (orderId=" + orderId + ")");
+        OrderIterator iterator = createIterator();
+        while (iterator.hasNext()) {
+            Order o = iterator.next();
             if (o.getOrderId() == orderId) {
                 return o;
             }
-
         }
-
         return null;
+    }
+
+    @Override
+    public OrderIterator createIterator() {
+        // Snapshot to keep iteration stable even if orders change elsewhere.
+        return new OrderListIterator(Collections.unmodifiableList(new ArrayList<>(orders)));
     }
 
     @Override
