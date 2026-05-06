@@ -2,23 +2,23 @@ package com.eoms.Boundary;
 
 import java.util.Scanner;
 
+import com.eoms.app.mediator.CustomerMediator;
 import com.eoms.bridge_notification.Notification;
-import com.eoms.service.ShippingService;
 import com.eoms.entity.Order;
 import com.eoms.entity.Shipment;
 import com.eoms.util.InputValidator;
 
 public class OrderTrackingView {
 
-    private ShippingService shippingService;
+    private CustomerMediator mediator;
     private Scanner scanner;
     private final Notification shippingUpdateNotification;
 
     public OrderTrackingView(
-            ShippingService shippingService,
+            CustomerMediator mediator,
             Scanner scanner,
             Notification shippingUpdateNotification) {
-        this.shippingService = shippingService;
+        this.mediator = mediator;
         this.scanner = scanner;
         this.shippingUpdateNotification = shippingUpdateNotification;
     }
@@ -30,7 +30,7 @@ public class OrderTrackingView {
             InputValidator.validatePositiveInt(orderId, "Order ID");
             scanner.nextLine();
 
-            Order order = shippingService.getOrder(orderId);
+            Order order = mediator.getOrderById(orderId);
 
             if (order == null) {
                 System.out.println("Order not found.");
@@ -39,7 +39,7 @@ public class OrderTrackingView {
 
             System.out.println("Order Status: " + order.getStatus());
 
-            Shipment shipment = shippingService.getShipmentForOrder(orderId);
+            Shipment shipment = mediator.getShipmentForOrder(orderId);
 
             if (shipment != null) {
                 System.out.println("Shipment status: " + shipment.getStatus());

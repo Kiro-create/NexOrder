@@ -3,20 +3,20 @@ package com.eoms.Boundary;
 import java.util.List;
 import java.util.Scanner;
 
-import com.eoms.service.ProductService;
+import com.eoms.app.mediator.CustomerMediator;
 import com.eoms.entity.Product;
 import com.eoms.util.InputValidator;
 
 /**
- * Presentation layer: interacts with user and delegates business work to a service.
+ * Presentation layer: interacts with user and delegates business work to mediator.
  */
 public class ProductCatalogView {
 
-    private ProductService productService;
+    private CustomerMediator mediator;
     private Scanner scanner;
 
-    public ProductCatalogView(ProductService productService, Scanner scanner) {
-        this.productService = productService;
+    public ProductCatalogView(CustomerMediator mediator, Scanner scanner) {
+        this.mediator = mediator;
         this.scanner = scanner;
     }
     
@@ -60,7 +60,7 @@ public class ProductCatalogView {
             }
 
             // --- Call controller with type ---
-            boolean success = productService.addProduct(id, name, price, stock, type);
+            boolean success = mediator.addProduct(id, name, price, stock, type);
 
             if (success) {
                 System.out.println("Product added successfully.");
@@ -78,7 +78,7 @@ public class ProductCatalogView {
 
     public void displayProducts() {
 
-        List<Product> products = productService.getAllProducts();
+        List<Product> products = mediator.getProducts();
 
         for (Product p : products) {
 

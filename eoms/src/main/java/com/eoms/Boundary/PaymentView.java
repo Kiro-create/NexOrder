@@ -2,7 +2,7 @@ package com.eoms.Boundary;
 
 import java.util.Scanner;
 
-import com.eoms.service.PaymentService;
+import com.eoms.app.mediator.CustomerMediator;
 import com.eoms.entity.Order;
 import com.eoms.entity.Payment;
 import com.eoms.factory.PaymentProcessor;
@@ -10,11 +10,11 @@ import com.eoms.util.InputValidator;
 
 public class PaymentView {
 
-    private PaymentService paymentService;
+    private CustomerMediator mediator;
     private Scanner scanner;
 
-    public PaymentView(PaymentService paymentService, Scanner scanner) {
-        this.paymentService = paymentService;
+    public PaymentView(CustomerMediator mediator, Scanner scanner) {
+        this.mediator = mediator;
         this.scanner = scanner;
     }
 
@@ -28,7 +28,7 @@ public class PaymentView {
             InputValidator.validatePositiveInt(paymentId, "Payment ID");
             scanner.nextLine();
 
-            Payment payment = paymentService.processPayment(paymentId, order, processor);
+            Payment payment = mediator.processPayment(paymentId, order, processor);
 
             if ("Approved".equals(payment.getStatus())) {
                 System.out.println("Payment approved. Amount = " + payment.getAmount());

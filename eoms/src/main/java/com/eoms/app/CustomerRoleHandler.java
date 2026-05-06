@@ -28,42 +28,8 @@ import java.util.Scanner;
 public class CustomerRoleHandler implements RoleHandler {
     private final CustomerMediator customerMediator;
 
-    public CustomerRoleHandler(
-            ProductCatalogView catalogView,
-            CheckoutView checkoutView,
-            PaymentView paymentView,
-            OrderTrackingView trackingView,
-            OrderService orderService,
-            Notification orderConfirmationNotification,
-            Notification paymentReceiptNotification,
-            PaymentProcessorProvider paymentProcessorProvider) {
-        this(catalogView, checkoutView, paymentView, trackingView, orderService, orderConfirmationNotification, paymentReceiptNotification, paymentProcessorProvider, null);
-    }
-
-    public CustomerRoleHandler(
-            ProductCatalogView catalogView,
-            CheckoutView checkoutView,
-            PaymentView paymentView,
-            OrderTrackingView trackingView,
-            OrderService orderService,
-            Notification orderConfirmationNotification,
-            Notification paymentReceiptNotification,
-            PaymentProcessorProvider paymentProcessorProvider,
-            OrderProcessingMediator orderProcessingMediator) {
-        // Unused parameters kept for backward compatibility with EomsApplication
-        // The mediator is now responsible for coordinating these components
-        if (paymentProcessorProvider == null) {
-            throw new IllegalArgumentException("paymentProcessorProvider must not be null");
-        }
-        
-        // Create mediator for business coordination
-        this.customerMediator = new CustomerMediatorImpl(
-                catalogView,
-                checkoutView,
-                paymentView,
-                trackingView,
-                paymentProcessorProvider,
-                orderProcessingMediator);
+    public CustomerRoleHandler(CustomerMediator customerMediator) {
+        this.customerMediator = customerMediator;
     }
 
     @Override

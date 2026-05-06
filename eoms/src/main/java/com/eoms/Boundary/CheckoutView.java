@@ -1,18 +1,18 @@
 package com.eoms.Boundary;
 import java.util.Scanner;
 
-import com.eoms.service.OrderService;
+import com.eoms.app.mediator.CustomerMediator;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
 import com.eoms.util.InputValidator;
 
 public class CheckoutView {
 
-    private OrderService orderService;
+    private CustomerMediator mediator;
     private Scanner scanner;
 
-    public CheckoutView(OrderService orderService, Scanner scanner) {
-        this.orderService = orderService;
+    public CheckoutView(CustomerMediator mediator, Scanner scanner) {
+        this.mediator = mediator;
         this.scanner = scanner;
     }
 
@@ -20,7 +20,7 @@ public class CheckoutView {
         try {
             InputValidator.validateNotNull(customer, "Customer");
 
-            Order order = orderService.createOrder(customer);
+            Order order = mediator.createOrder(customer);
             System.out.println("Order created. Add products to cart using 'Add Product to Cart' option.");
             System.out.println("Your Order ID is " + order.getOrderId() + ".");
 
@@ -62,7 +62,7 @@ public class CheckoutView {
             InputValidator.validateQuantity(quantity);
             scanner.nextLine();
 
-            boolean success = orderService.addProductToOrder(order, productId, quantity);
+            boolean success = mediator.addProductToOrder(order, productId, quantity);
 
             if (success)
                 System.out.println("Item added to order.");
@@ -77,7 +77,7 @@ public class CheckoutView {
 
     public void finalizeOrder(Order order) {
 
-        double total = orderService.finalizeOrder(order);
+        double total = mediator.finalizeOrder(order);
 
         System.out.println("Order finalized. Total = " + total);
     }

@@ -10,9 +10,15 @@ import com.eoms.app.PaymentProcessorProvider;
 import com.eoms.config.Logger;
 import com.eoms.entity.Customer;
 import com.eoms.entity.Order;
+import com.eoms.entity.Product;
 import com.eoms.factory.PaymentProcessor;
+import com.eoms.service.OrderService;
+import com.eoms.service.PaymentService;
+import com.eoms.service.ProductService;
+import com.eoms.service.ShippingService;
 import com.eoms.util.InputValidator;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -30,46 +36,48 @@ import java.util.Scanner;
  */
 public class CustomerMediatorImpl implements CustomerMediator {
 
-    private final ProductCatalogView catalogView;
-    private final CheckoutView checkoutView;
-    private final PaymentView paymentView;
-    private final OrderTrackingView trackingView;
-    private PaymentProcessorProvider paymentProcessorProvider;
-    private OrderProcessingMediator orderProcessingMediator;
+    private ProductCatalogView catalogView;
+    private CheckoutView checkoutView;
+    private PaymentView paymentView;
+    private OrderTrackingView trackingView;
+    private final PaymentProcessorProvider paymentProcessorProvider;
+    private final OrderProcessingMediator orderProcessingMediator;
+    private final OrderService orderService;
+    private final PaymentService paymentService;
+    private final ProductService productService;
+    private final ShippingService shippingService;
     
     private Scanner scanner;
     private Customer customer;
     private Order currentOrder;
 
     public CustomerMediatorImpl(
-            ProductCatalogView catalogView,
-            CheckoutView checkoutView,
-            PaymentView paymentView,
-            OrderTrackingView trackingView,
-            PaymentProcessorProvider paymentProcessorProvider) {
-        this(catalogView, checkoutView, paymentView, trackingView, paymentProcessorProvider, null);
-    }
-
-    public CustomerMediatorImpl(
-            ProductCatalogView catalogView,
-            CheckoutView checkoutView,
-            PaymentView paymentView,
-            OrderTrackingView trackingView,
             PaymentProcessorProvider paymentProcessorProvider,
-            OrderProcessingMediator orderProcessingMediator) {
-        this.catalogView = catalogView;
-        this.checkoutView = checkoutView;
-        this.paymentView = paymentView;
-        this.trackingView = trackingView;
+            OrderProcessingMediator orderProcessingMediator,
+            OrderService orderService,
+            PaymentService paymentService,
+            ProductService productService,
+            ShippingService shippingService) {
         if (paymentProcessorProvider == null) {
             throw new IllegalArgumentException("paymentProcessorProvider must not be null");
         }
         this.paymentProcessorProvider = paymentProcessorProvider;
         this.orderProcessingMediator = orderProcessingMediator;
+        this.orderService = orderService;
+        this.paymentService = paymentService;
+        this.productService = productService;
+        this.shippingService = shippingService;
         
         // Initialize customer and order state
         this.customer = new Customer(1, "Customer", "customer@email.com");
         this.currentOrder = null;
+    }
+
+    public void setViews(ProductCatalogView catalogView, CheckoutView checkoutView, PaymentView paymentView, OrderTrackingView trackingView) {
+        this.catalogView = catalogView;
+        this.checkoutView = checkoutView;
+        this.paymentView = paymentView;
+        this.trackingView = trackingView;
     }
 
     @Override
@@ -188,5 +196,58 @@ public class CustomerMediatorImpl implements CustomerMediator {
         }
         
         trackingView.trackOrder();
+    }
+
+    @Override
+    public Order createOrder(Customer customer) {
+        InputValidator.validateNotNull(customer, "Customer");
+        return orderService.createOrder(customer);
+    }
+
+    @Override
+    public boolean addProductToOrder(Order order, int productId, int quantity) {
+        InputValidator.validateNotNull(order, "Order");
+        InputValidator.validatePositiveInt(productId, "Product ID");
+        InputValidator.validateQuantity(quantity);
+
+        if (quantity <= 0) return false;
+
+        return orderService.addProductToOrder(order, productId, quantity);
+    }
+
+    @Override
+    public double finalizeOrder(Order order) {
+        InputValidator.validateNotNull(order, "Order");
+        return orderService.finalizeOrder(order);
+    }
+
+    @Override
+    public boolean addProduct(int id, String name, double price, int stock, Product.ProductType type) {
+        InputValidator.validatePositiveInt(id, "Product ID");
+        InputValidator.validateNonEmptyString(name, "Product name");
+        InputValidator.validateStringLength(name, InputValidator.MAX_STRING_LENGTH, "Product name");
+        InputValidator.validatePrice(price);
+        InputValidator.validateStock(stock);
+        return productService.addProduct(id, name, price, stock, type);
+    }
+
+    @Override
+    public com.eoms.entity.Payment processPayment(int paymentId, Order order, PaymentProcessor processor) {
+        return paymentService.processPayment(paymentId, order, processor);
+    }
+
+    @Override
+    public Order getOrderById(int orderId) {
+        return shippingService.getOrder(orderId);
+    }
+
+    @Override
+    public com.eoms.entity.Shipment getShipmentForOrder(int orderId) {
+        return shippingService.getShipmentForOrder(orderId);
+    }
+
+    @Override
+    public List<Product> getProducts() {
+        return productService.getAllProducts();
     }
 }

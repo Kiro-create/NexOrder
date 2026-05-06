@@ -21,6 +21,7 @@ import com.eoms.DAO.PaymentDAO;
 import com.eoms.DAO.ProductDAO;
 import com.eoms.app.mediator.OrderProcessingMediator;
 import com.eoms.app.mediator.OrderProcessingMediatorImpl;
+import com.eoms.app.mediator.CustomerMediator;
 import com.eoms.service.OrderService;
 import com.eoms.service.PaymentService;
 import com.eoms.service.ProductService;
@@ -61,6 +62,7 @@ public class EomsApplication {
     private final ProductInterface productDAO;
     private final AdminReportView adminReportView;
     private final OrderProcessingMediator orderProcessingMediator;
+    private final CustomerMediator customerMediator;
 
     public EomsApplication(Scanner scanner) {
         this.scanner = scanner;
@@ -98,12 +100,20 @@ public class EomsApplication {
         MessageSender smsSender = new TimestampMessageSenderDecorator(new SmsSender());
         this.shippingUpdateNotification = new ShippingUpdateNotification(smsSender);
 
-        // views
-        this.catalogView = new ProductCatalogView(productService, scanner);
+        // Mediator (create first without views)
+        CustomerMediator customerMediator = new CustomerMediatorImpl(paymentProcessorProvider, orderProcessingMediator, orderService, paymentService, productService, shippingService);
+
+        // views (inject mediator)
+        this.catalogView = new ProductCatalogView(customerMediator, scanner);
         this.adminReportView = new AdminReportView(reportService, scanner);
-        this.checkoutView = new CheckoutView(orderService, scanner);
-        this.paymentView = new PaymentView(paymentService, scanner);
-        this.trackingView = new OrderTrackingView(shippingService, scanner, shippingUpdateNotification);
+        this.checkoutView = new CheckoutView(customerMediator, scanner);
+        this.paymentView = new PaymentView(customerMediator, scanner);
+        this.trackingView = new OrderTrackingView(customerMediator, scanner, shippingUpdateNotification);
+
+        // Set views in mediator
+        ((CustomerMediatorImpl) customerMediator).setViews(catalogView, checkoutView, paymentView, trackingView);
+
+        this.customerMediator = customerMediator;
         OrderEventManager eventManager = OrderEventManager.getInstance();
 
      // Create listeners using existing senders
@@ -158,18 +168,7 @@ public class EomsApplication {
                     adminHandler.handle(scanner);
                     break;
                 case 2:
-                    PaymentProcessorProvider paymentProcessorProvider = new DefaultPaymentProcessorProvider();
-                    new CustomerRoleHandler(
-                            catalogView,
-                            checkoutView,
-                            paymentView,
-                            trackingView,
-                            orderService,
-                            orderConfirmationNotification,
-                            paymentReceiptNotification,
-                            paymentProcessorProvider,
-                            orderProcessingMediator)
-                            .handle(scanner);
+                    new CustomerRoleHandler(customerMediator).handle(scanner);
                     break;
                 default:
                     System.out.println("Invalid choice.");
