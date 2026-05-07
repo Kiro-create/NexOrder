@@ -1,0 +1,846 @@
+2026.03.07 01:37:02 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\merom\Downloads\eoms' for client Visual Studio Code 1.107.1.
+2026.03.07 01:37:02 INFO  Memory monitor started
+2026.03.07 01:37:02 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.07 01:37:02 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:04 INFO  Attempting to connect to the build server...
+2026.03.07 01:37:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:04 INFO  No running Bloop server found, starting one.
+2026.03.07 01:37:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:09 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:37:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+Mar 07, 2026 1:37:09 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+2026.03.07 01:37:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:24 INFO  Starting compilation server
+2026.03.07 01:37:26 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\merom\Downloads\eoms\.metals\bsp.trace.json or C:\Users\merom\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.03.07 01:37:27 ERROR C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot release file missing JAVA_VERSION property - using Bloop's JVM version 23.0.2
+2026.03.07 01:37:27 ERROR C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot release file missing JAVA_VERSION property - using Bloop's JVM version 23.0.2
+2026.03.07 01:37:27 INFO  time: Connected to build server in 23s
+2026.03.07 01:37:27 INFO  Connected to Build server: Bloop v2.0.19
+2026.03.07 01:37:27 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-fI8i-JR-TgKAI1G7uToT_A==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:37:27 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-fI8i-JR-TgKAI1G7uToT_A==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:37:27 INFO  Disconnecting from Bloop session...
+2026.03.07 01:37:27 ERROR Failed to connect with build server, no functionality will work.
+java.lang.IllegalArgumentException: 'other' has different root
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:420)
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
+	at scala.meta.io.AbsolutePath.toRelative(AbsolutePath.scala:34)
+	at scala.meta.internal.metals.DelegateSetting$.$anonfun$writeProjectRef$1(DelegateSetting.scala:18)
+	at scala.collection.immutable.List.map(List.scala:236)
+	at scala.meta.internal.metals.DelegateSetting$.writeProjectRef(DelegateSetting.scala:18)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.saveProjectReferencesInfo(ConnectionProvider.scala:498)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.$anonfun$importBuildAndIndex$2(ConnectionProvider.scala:476)
+	at scala.meta.internal.metals.Interruptable.$anonfun$map$1(Interruptable.scala:46)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:37:27 INFO  Shut down connection with build server.
+2026.03.07 01:37:27 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:37:27 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:51 INFO  Shutting down server
+2026.03.07 01:37:51 INFO  Memory monitor stopped
+2026.03.07 01:37:51 INFO  shutting down Metals
+2026.03.07 01:37:51 INFO  Exiting server
+2026.03.07 01:37:58 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\merom\Downloads\eoms' for client Visual Studio Code 1.107.1.
+2026.03.07 01:37:58 INFO  Memory monitor started
+2026.03.07 01:37:58 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  Attempting to connect to the build server...
+Mar 07, 2026 1:37:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7
+Mar 07, 2026 1:37:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8
+Mar 07, 2026 1:37:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+Mar 07, 2026 1:37:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+2026.03.07 01:37:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:37:59 INFO  Found a Bloop server running
+2026.03.07 01:38:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\merom\Downloads\eoms\.metals\bsp.trace.json or C:\Users\merom\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.03.07 01:38:00 INFO  time: Connected to build server in 0.57s
+2026.03.07 01:38:00 INFO  Connected to Build server: Bloop v2.0.19
+2026.03.07 01:38:00 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-ouPYfMHvSReBHCtf54qOig==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:38:00 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-ouPYfMHvSReBHCtf54qOig==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:38:00 INFO  time: Imported build in 0.14s
+2026.03.07 01:38:00 INFO  Disconnecting from Bloop session...
+2026.03.07 01:38:00 ERROR Failed to connect with build server, no functionality will work.
+java.lang.IllegalArgumentException: 'other' has different root
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:420)
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
+	at scala.meta.io.AbsolutePath.toRelative(AbsolutePath.scala:34)
+	at scala.meta.internal.metals.DelegateSetting$.$anonfun$writeProjectRef$1(DelegateSetting.scala:18)
+	at scala.collection.immutable.List.map(List.scala:236)
+	at scala.meta.internal.metals.DelegateSetting$.writeProjectRef(DelegateSetting.scala:18)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.saveProjectReferencesInfo(ConnectionProvider.scala:498)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.$anonfun$importBuildAndIndex$2(ConnectionProvider.scala:476)
+	at scala.meta.internal.metals.Interruptable.$anonfun$map$1(Interruptable.scala:46)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 01:38:00 INFO  Shut down connection with build server.
+2026.03.07 01:38:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:38:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:38:01 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:38:02 INFO  time: code lens generation in 1.47s
+2026.03.07 01:38:02 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:38:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+Mar 07, 2026 1:38:23 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Mar 07, 2026 1:38:24 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Mar 07, 2026 1:40:24 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.03.07 01:42:28 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java
+2026.03.07 01:42:28 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java. Using fallback presentation compiler.
+2026.03.07 01:42:28 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java. Using fallback presentation compiler.
+2026.03.07 01:42:34 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java. Using fallback presentation compiler.
+2026.03.07 01:42:36 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java. Using fallback presentation compiler.
+2026.03.07 01:43:18 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:43:18 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:43:18 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:44:49 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java
+2026.03.07 01:44:49 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:50 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:54 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java
+2026.03.07 01:44:54 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:54 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:59 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java
+2026.03.07 01:44:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:44:59 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java
+2026.03.07 01:44:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java
+2026.03.07 01:44:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:01 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:01 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java
+2026.03.07 01:45:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:01 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:17 INFO  no build target found for c:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:18 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java
+2026.03.07 01:45:17 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:18 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:23 INFO  no build target found for c:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\UIFactoryProvider.java. Using fallback presentation compiler.
+2026.03.07 01:45:23 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:45:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:28 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\Controller\PlaceOrderController.java. Using fallback presentation compiler.
+2026.03.07 01:45:35 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:37 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:37 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:37 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:44 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java
+2026.03.07 01:45:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:45:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:45:45 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:45:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:45:45 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java
+2026.03.07 01:45:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:45:45 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:45:45 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:45:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:45:55 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java
+2026.03.07 01:45:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:45:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:46:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:01 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:03 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java
+2026.03.07 01:46:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:04 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:46:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:20 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java
+2026.03.07 01:46:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:46:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:46:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:46:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:46:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:46:23 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java
+2026.03.07 01:46:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:46:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:46:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:46:24 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:46:24 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java
+2026.03.07 01:46:24 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:24 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:24 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:26 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:26 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java
+2026.03.07 01:46:26 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:26 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:27 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:26 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:29 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:29 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:29 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+Mar 07, 2026 1:46:30 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 202
+2026.03.07 01:46:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:38 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java
+2026.03.07 01:46:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:46:53 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:46:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:46:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:04 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java
+2026.03.07 01:47:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:05 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:22 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:47:22 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 01:47:22 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:47:22 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:47:23 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:47:29 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:47:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:48:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:48:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:48:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:48:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 01:48:09 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:48:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:48:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:48:10 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:48:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:48:15 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java
+2026.03.07 01:48:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:48:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:48:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:48:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:48:20 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java
+2026.03.07 01:48:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:48:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:48:20 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:07 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java
+2026.03.07 01:53:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:07 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:09 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java
+2026.03.07 01:53:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:10 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:11 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:11 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java
+2026.03.07 01:53:11 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:11 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:11 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:12 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:53:13 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 01:53:13 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:13 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:13 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:12 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\InvoicePolicy.java
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\InvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\InvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:13 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\InvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\InvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:14 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:15 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalInvoicePolicy.java
+2026.03.07 01:53:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:15 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:17 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:53:16 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java
+2026.03.07 01:53:16 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:17 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:17 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:17 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:19 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:32 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:32 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:34 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:53:39 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:30 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:31 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:31 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:31 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:32 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:35 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:35 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\OrderProcessor.java. Using fallback presentation compiler.
+2026.03.07 01:54:44 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\StockHandler.java
+2026.03.07 01:54:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\StockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:54:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\StockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:54:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\StockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:54:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\StockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:54:51 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java
+2026.03.07 01:54:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:54:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:54:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:54:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:54:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:54:52 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionInvoicePolicy.java
+2026.03.07 01:54:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:54:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:54:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:55:38 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java
+2026.03.07 01:55:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:41 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:51 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java
+2026.03.07 01:55:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:53 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java
+2026.03.07 01:55:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:55:53 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:56:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:56:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:46 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:46 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java
+2026.03.07 01:57:46 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:49 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\SubscriptionInvoicePolicy.java. Using fallback presentation compiler.
+2026.03.07 01:57:49 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:57:49 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:49 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:49 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:52 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java
+2026.03.07 01:57:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:53 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:57:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:52 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:54 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java
+2026.03.07 01:57:54 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:54 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:57:55 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:57:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:57:55 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 01:58:38 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:58:51 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\PhysicalStockHandler.java. Using fallback presentation compiler.
+2026.03.07 01:59:09 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java
+2026.03.07 01:59:09 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\AbstractDeliveryService.java. Using fallback presentation compiler.
+2026.03.07 02:17:59 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java
+2026.03.07 02:17:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:17:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:03 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:04 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:05 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:39 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\DigitalProductFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:39 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:18:39 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:39 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:18:39 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:20:44 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:20:56 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:20:56 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:21:00 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:21:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:21:02 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:21:02 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:21:05 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:21:05 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:33:02 INFO  Shutting down server
+2026.03.07 02:33:02 INFO  Memory monitor stopped
+2026.03.07 02:33:02 INFO  shutting down Metals
+2026.03.07 02:33:02 INFO  Exiting server
+2026.03.07 02:50:28 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\merom\Downloads\eoms' for client Visual Studio Code 1.110.0.
+2026.03.07 02:50:28 INFO  Memory monitor started
+2026.03.07 02:50:28 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.07 02:50:29 INFO  Attempting to connect to the build server...
+2026.03.07 02:50:29 INFO  Found a Bloop server running
+2026.03.07 02:50:30 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\merom\Downloads\eoms\.metals\bsp.trace.json or C:\Users\merom\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.03.07 02:50:30 INFO  time: Connected to build server in 0.45s
+2026.03.07 02:50:30 INFO  Connected to Build server: Bloop v2.0.19
+2026.03.07 02:50:30 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-7tONL9NNRgCTqOfJH_oTBQ==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.startExecution(TaskCreate.scala:236)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.tryOnSuccess(TaskCreate.scala:202)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.onSuccess(TaskCreate.scala:195)
+	at bloop.task.Task$.result$2(Task.scala:465)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3(Task.scala:475)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3$adapted(Task.scala:473)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:74)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 02:50:30 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.FileSystemException: D:\Dropbox\Family\Ali EUI\Software Design and Development\Project\eoms\target\bloop-bsp-clients-classes\test-classes-Metals-7tONL9NNRgCTqOfJH_oTBQ==: Unable to determine if root directory exists
+	at java.base/java.nio.file.Files.createDirectories(Files.java:783)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1713)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:128)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:126)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:126)
+	at bloop.data.Project.fullClasspath(Project.scala:139)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1726)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1717)
+	at java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1641)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:507)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1460)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2036)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 02:50:30 INFO  Disconnecting from Bloop session...
+2026.03.07 02:50:30 ERROR Failed to connect with build server, no functionality will work.
+java.lang.IllegalArgumentException: 'other' has different root
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:420)
+	at sun.nio.fs.WindowsPath.relativize(WindowsPath.java:42)
+	at scala.meta.io.AbsolutePath.toRelative(AbsolutePath.scala:34)
+	at scala.meta.internal.metals.DelegateSetting$.$anonfun$writeProjectRef$1(DelegateSetting.scala:18)
+	at scala.collection.immutable.List.map(List.scala:236)
+	at scala.meta.internal.metals.DelegateSetting$.writeProjectRef(DelegateSetting.scala:18)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.saveProjectReferencesInfo(ConnectionProvider.scala:498)
+	at scala.meta.internal.metals.ConnectionProvider$Connect$.$anonfun$importBuildAndIndex$2(ConnectionProvider.scala:476)
+	at scala.meta.internal.metals.Interruptable.$anonfun$map$1(Interruptable.scala:46)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1575)
+
+2026.03.07 02:50:30 INFO  Shut down connection with build server.
+2026.03.07 02:50:30 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:50:33 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:50:34 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+Mar 07, 2026 2:50:34 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2026.03.07 02:50:34 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+Mar 07, 2026 2:50:34 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Mar 07, 2026 2:50:34 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.03.07 02:50:34 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+Mar 07, 2026 2:50:34 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Mar 07, 2026 2:50:35 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Mar 07, 2026 2:50:36 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.03.07 02:56:59 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java
+2026.03.07 02:56:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:56:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:56:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:57:00 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:56:59 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:57:05 INFO  no build target found for c:\Users\merom\Downloads\eoms\src\main\java\com\eoms\ui_abstract_factory\Main.java. Using fallback presentation compiler.
+2026.03.07 02:57:05 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:57:05 WARN  no build target for: C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java
+2026.03.07 02:57:05 INFO  no build target found for C:\Users\merom\Downloads\eoms\src\main\java\com\eoms\abstract_factory\ProductTypeFactory.java. Using fallback presentation compiler.
+2026.03.07 02:58:59 INFO  Shutting down server
+2026.03.07 02:58:59 INFO  Memory monitor stopped
+2026.03.07 02:58:59 INFO  shutting down Metals
+2026.03.07 02:58:59 INFO  Exiting server
