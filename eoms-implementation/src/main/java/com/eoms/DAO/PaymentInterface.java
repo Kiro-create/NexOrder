@@ -10,4 +10,6 @@ public interface PaymentInterface {
 
 	int getNextPaymentId();
 
+	boolean deletePaymentById(int paymentId);
+
 }

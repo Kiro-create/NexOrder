@@ -12,4 +12,6 @@ public interface OrderInterface {
 
     int getNextOrderId();
 
+    boolean deleteOrderById(int orderId);
+
 }

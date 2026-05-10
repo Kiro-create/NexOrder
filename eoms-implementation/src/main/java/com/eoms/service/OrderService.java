@@ -12,4 +12,6 @@ public interface OrderService {
     boolean addProductToOrder(Order order, int productId, int quantity);
     Product selectProductFromCatalog();
     double finalizeOrder(Order order);
+    Order getOrderById(int orderId);
+    boolean deleteOrderById(int orderId);
 }

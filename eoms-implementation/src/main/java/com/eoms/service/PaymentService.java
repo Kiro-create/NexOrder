@@ -11,4 +11,7 @@ public interface PaymentService {
      * for updating the order's status according to the processor result.
      */
     Payment processPayment(int paymentId, Order order, PaymentProcessor processor);
+    Payment getPaymentById(int paymentId);
+    boolean updatePaymentStatus(int paymentId, String status);
+    boolean deletePaymentById(int paymentId);
 }

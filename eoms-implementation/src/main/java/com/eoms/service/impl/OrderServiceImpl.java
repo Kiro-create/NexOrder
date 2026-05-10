@@ -94,4 +94,17 @@ public class OrderServiceImpl implements OrderService {
         }
         return productDAO.getAllProducts().get(0);
     }
+
+    @Override
+    public Order getOrderById(int orderId) {
+        InputValidator.validatePositiveInt(orderId, "Order ID");
+        return orderDAO.findOrderById(orderId);
+    }
+
+    @Override
+    public boolean deleteOrderById(int orderId) {
+        InputValidator.validatePositiveInt(orderId, "Order ID");
+        return orderDAO.deleteOrderById(orderId);
+    }
+
 }

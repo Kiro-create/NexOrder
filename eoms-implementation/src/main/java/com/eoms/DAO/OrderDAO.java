@@ -43,4 +43,9 @@ public class OrderDAO implements OrderInterface {
         return nextOrderId++;
     }
 
+    @Override
+    public boolean deleteOrderById(int orderId) {
+        return orders.removeIf(order -> order.getOrderId() == orderId);
+    }
+
 }

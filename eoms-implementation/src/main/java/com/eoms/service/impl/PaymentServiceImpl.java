@@ -81,4 +81,32 @@ public class PaymentServiceImpl implements PaymentService {
 
         return payment;
     }
+
+    @Override
+    public Payment getPaymentById(int paymentId) {
+        InputValidator.validatePositiveInt(paymentId, "Payment ID");
+        return paymentDAO.findPaymentById(paymentId);
+    }
+
+    @Override
+    public boolean updatePaymentStatus(int paymentId, String status) {
+        InputValidator.validatePositiveInt(paymentId, "Payment ID");
+        InputValidator.validateNonEmptyString(status, "Payment status");
+
+        Payment payment = paymentDAO.findPaymentById(paymentId);
+
+        if (payment == null) {
+            return false;
+        }
+
+        payment.setStatus(status); // or payment.updateStatus(status)
+        return true;
+    }
+
+    @Override
+    public boolean deletePaymentById(int paymentId) {
+        InputValidator.validatePositiveInt(paymentId, "Payment ID");
+        return paymentDAO.deletePaymentById(paymentId);
+}
+
 }

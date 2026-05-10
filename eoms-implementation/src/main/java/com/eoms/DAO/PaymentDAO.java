@@ -31,4 +31,9 @@ public class PaymentDAO implements PaymentInterface {
         return nextPaymentId++;
     }
 
+    @Override
+    public boolean deletePaymentById(int paymentId) {
+        return payments.removeIf(payment -> payment.getPaymentId() == paymentId);
+    }
+
 }
